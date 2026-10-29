@@ -365,12 +365,23 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
 }
 @media (max-width: 720px) {
   body { font-size: 16px; }
-  .hero h1 { font-size: clamp(46px, 13vw, 72px); }
-  .hero-actions .button { flex: 1 1 100%; }
+  .hero { min-height: max(640px, 100svh); }
+  .hero-content { padding: calc(var(--header-h) + 38px) 0 126px; }
+  .hero h1 { max-width: 12ch; font-size: clamp(42px, 12vw, 64px); line-height: .98; }
+  .hero-intro { max-width: 34rem; font-size: 16px; }
+  .hero-actions { align-items: stretch; }
+  .hero-actions .button { width: 100%; min-height: 48px; flex: 1 1 100%; }
+  .hero-controls { right: 18px; bottom: 20px; left: 18px; }
+  .hero-slide-copy { max-width: 100%; }
   .program-text h3 { font-size: 30px; }
   .program-icon { width: 44px; height: 44px; }
   .programs-outro { padding-block: 64px 80px; }
   .country-series { padding: 32px 24px; }
+}
+
+@media (min-width: 981px) {
+  .hero-content { padding-right: clamp(48px, 8vw, 140px); }
+  .hero-slide-copy { max-width: 650px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
