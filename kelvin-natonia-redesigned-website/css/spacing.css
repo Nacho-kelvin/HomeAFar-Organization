@@ -116,9 +116,11 @@
   .privacy-section { padding-block: var(--space-7); }
 }
 @media (max-width: 620px) {
-  :root { --section-y: 72px; --block-gap: 56px; --heading-gap: 36px; }
+  :root { --section-y: 104px; --block-gap: 80px; --heading-gap: 52px; --gutter: 24px; }
   .intro-copy { padding-left: var(--space-4); }
-  .program-band { padding-block: 56px; }
+  .program-band { padding-block: 80px; }
+  .programs-intro, .programs-outro { padding-block: var(--section-y); }
+  .story-grid { row-gap: 72px; }
   .partner-category { padding: var(--space-5) var(--space-4) var(--space-5); }
   .field-row { gap: var(--space-4); }
 }
