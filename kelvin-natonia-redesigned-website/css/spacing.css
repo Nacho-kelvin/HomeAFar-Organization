@@ -313,3 +313,40 @@ body { font-family: var(--sans); letter-spacing: -0.008em; }
   .wordmark { letter-spacing: -.07em; }
   .brand-tagline { letter-spacing: .1em; }
 }
+
+/* Compact footer/contact layout: keep every link visible without oversized empty bands. */
+.ft { padding-block: clamp(48px, 7vw, 88px) 0; }
+.ft-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.35fr) repeat(3, minmax(130px, 1fr));
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: 0 clamp(40px, 5vw, 64px);
+}
+.ft-brand { min-width: 0; }
+.ft-brand .brand-mark { width: 72px; height: 72px; }
+.ft-brand .wordmark { font-size: clamp(28px, 3vw, 42px); }
+.ft-line { max-width: 26ch; margin-block: 20px 22px; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.4; }
+.ft-col { gap: 12px; }
+.ft-col h3 { margin-bottom: 6px; font-size: 12px; letter-spacing: .2em; }
+.ft-col a { font-size: 15px; line-height: 1.35; }
+.ft-email { overflow-wrap: anywhere; }
+.ft-bottom { padding-block: 18px 22px; }
+@media (max-width: 760px) {
+  .ft { padding-top: 48px; }
+  .ft-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 24px; }
+  .ft-brand, .ft-contact { grid-column: 1 / -1; }
+  .ft-brand { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; }
+  .ft-brand .brand-mark { width: 64px; height: 64px; }
+  .ft-line { grid-column: 2; margin: 4px 0 0; }
+  .ft-social { grid-column: 1 / -1; margin-top: 4px; }
+  .ft-contact { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 12px 16px; }
+  .ft-contact h3 { grid-column: 1 / -1; }
+  .ft-email { font-size: 16px; }
+  .ft-bottom { display: grid; gap: 8px; }
+}
+@media (max-width: 420px) {
+  .ft-inner { gap: 28px 18px; }
+  .ft-brand .wordmark { font-size: 30px; }
+  .ft-col a { font-size: 14px; }
+  .ft-email { font-size: 14px; }
+}
