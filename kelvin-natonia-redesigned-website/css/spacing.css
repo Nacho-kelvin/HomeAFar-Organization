@@ -284,3 +284,32 @@ body { font-family: var(--sans); letter-spacing: -0.008em; }
   .hero-slide-copy h1 { font-size: clamp(42px, 11.5vw, 60px); }
   .hero-slide-copy p { font-size: 17px; line-height: 1.55; }
 }
+
+/* Brand title refinement: retain HomeAFar, but give the A a distinctive editorial signature. */
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -.065em;
+  line-height: .92;
+  white-space: nowrap;
+}
+.wordmark .wm-a {
+  display: inline-block;
+  margin-inline: .015em .025em;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+  transform: translateY(.035em) skewX(-6deg);
+}
+.brand-tagline {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+@media (max-width: 380px) {
+  .wordmark { letter-spacing: -.07em; }
+  .brand-tagline { letter-spacing: .1em; }
+}
