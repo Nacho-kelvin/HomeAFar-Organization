@@ -15,15 +15,22 @@ const ACTIONS = {
 // whatever this page shows.
 export default function Admin() {
   const [supabase, setSupabase] = useState(null);
-  const [phase, setPhase] = useState('loading'); // loading | signin | denied | ready | unconfigured
+  const [phase, setPhase] = useState('loading'); // loading | signin | denied | ready | unconfigured | unavailable
   const [error, setError] = useState('');
   const [signingIn, setSigningIn] = useState(false);
 
   const check = useCallback(async (client) => {
-    const { data: sessionData } = await client.auth.getSession();
+    if (!client) { setPhase('unconfigured'); return; }
+    const { data: sessionData, error: sessionError } = await client.auth.getSession();
+    if (sessionError) { setError('The Supabase session could not be checked.'); setPhase('unavailable'); return; }
     if (!sessionData.session) { setPhase('signin'); return; }
-    const { data, error: adminError } = await client.from('admins').select('user_id').maybeSingle();
-    setPhase(!adminError && data ? 'ready' : 'denied');
+    const { data: isAdmin, error: adminError } = await client.rpc('is_admin');
+    if (adminError) {
+      setError('The admin database check is unavailable. Confirm the HomeAFar database schema has been applied.');
+      setPhase('unavailable');
+      return;
+    }
+    setPhase(isAdmin === true ? 'ready' : 'denied');
   }, []);
 
   useEffect(() => {
@@ -65,6 +72,7 @@ export default function Admin() {
         </form>
       )}
       {phase === 'denied' && <p className="form-banner form-banner-error" role="alert">This account is signed in but is not authorised as a HomeAFar administrator, so no data can be shown.</p>}
+      {phase === 'unavailable' && <p className="form-banner form-banner-error" role="alert">{error}</p>}
       {phase === 'ready' && <Dashboard supabase={supabase} />}
     </main>
   );
