@@ -41,12 +41,18 @@ const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 // Homepage slideshow: scenes of travel, culture and home plus one community photograph, each with its own message and focal point.
 const HERO = {
   network: '01_traveler_savanna_africa_network.jpg', // traveller looking at a glowing network map of Africa at sunset
-  airport: '02_airport_luggage_sunset.jpg', // luggage, hat and passport with a plane at golden hour
 };
 const slides = [
-  { file: HERO.network, pos: 'center 42%', posM: '34% 50%', alt: 'A traveller in an African-print jacket with a backpack looks over the savanna at sunset, a glowing network map of Africa in the sky', eyebrow: 'Wherever the road leads', title: <>Africa is always<br /><em>with you.</em></>, copy: 'Distance changes the view, never the roots. Carry home in your story, your food, your music and your people.' },
-  { file: PHOTO.group, pos: 'center 58%', posM: '38% 50%', alt: ALT.group, eyebrow: 'Wherever we gather', title: 'Home is where', accent: 'we find each other.', copy: 'Shared tables, familiar laughter and people showing up for one another. This is the community HomeAFar is built around.' },
-  { file: HERO.airport, pos: 'center 50%', posM: '32% 50%', alt: 'A suitcase, leather bag, straw hat and passport in an airport terminal at sunset with a plane waiting outside', eyebrow: 'Home travels with you', title: 'A home you carry.', accent: 'A community beside you.', copy: 'Share experiences, celebrate the many cultures of Africa and help build meaningful connections across borders.' },
+  {
+    file: HERO.network,
+    eyebrow: 'Belong anywhere',
+    title: 'Your roots are',
+    accent: 'still growing.',
+    copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
+    alt: 'Traveller looking at a glowing network map of Africa at sunset.',
+    pos: 'center',
+    posM: 'center',
+  },
 ];
 
 // Section slideshows. Each frame cycles through photos that suit its shape; focal points keep faces in view.

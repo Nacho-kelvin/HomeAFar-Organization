@@ -21,7 +21,7 @@ describe('whole page', () => {
     expect(container.querySelectorAll('h1 em:empty')).toHaveLength(0);
     // the hero has no previous/next/play/pause buttons; the dots remain, and swiping still changes photos
     expect(screen.queryByRole('button', { name: /show next photo|show previous photo|pause slideshow|play slideshow/i })).toBeNull();
-    expect(container.querySelectorAll(".slide-indicator")).toHaveLength(3);
+    expect(container.querySelectorAll(".slide-indicator")).toHaveLength(1);
   });
 
   it('every image on the page points at a file that exists', () => {
