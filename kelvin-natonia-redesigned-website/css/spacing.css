@@ -161,12 +161,14 @@
 }
 
 @media (max-width: 620px) {
-  .nav-shell { width: calc(100% - 32px); min-height: 116px; padding-block: 16px; }
+  .nav-shell { width: calc(100% - 32px); min-height: 88px; height: 88px; padding-block: 10px; }
   .brand { min-width: 0; gap: 10px; }
   .brand-mark { width: 46px; height: 46px; flex-basis: 46px; }
-  .brand-name { font-size: clamp(25px, 8vw, 34px); }
-  .brand-tagline { display: block; margin-top: 8px; font-size: 9px; letter-spacing: .12em; white-space: nowrap; }
-  .menu-toggle { width: 54px; height: 54px; flex-basis: 54px; }
+  .brand-copy { min-width: 0; }
+  .brand-name { font-size: clamp(25px, 8vw, 34px); letter-spacing: -.045em; line-height: .95; }
+  .brand-name-a { font-style: italic; }
+  .brand-tagline { display: block; margin-top: 6px; font-size: 9px; letter-spacing: .12em; white-space: nowrap; }
+  .menu-toggle { width: 50px; height: 50px; flex-basis: 50px; }
   .hero { min-height: max(680px, 100svh); }
   .hero-content { width: calc(100% - 32px); padding-block: 72px 108px; }
   .hero-slide-copy h1 { font-size: clamp(38px, 11.5vw, 58px); text-wrap: balance; }
