@@ -4,14 +4,14 @@ import '../css/style.css';
 import '../css/redesign.css';
 import '../css/hero-extras.css';
 import '../css/polish.css';
+import '../css/luxe.css';
 import '../css/spacing.css';
-
-const Admin = lazy(() => import('./admin.jsx'));
-
 import { Icon } from './icons.jsx';
-import { Photo, photoProps, image, reducedMotion } from './photo.jsx';
+import { Photo, photoProps, image } from './photo.jsx';
 import { ScrollUI, Crossfade } from './ui.jsx';
 import { PARTNERS, PARTNERSHIP_EMAIL } from './partners.js';
+
+const Admin = lazy(() => import('./admin.jsx'));
 
 // The real community photos, named by what they show.
 const PHOTO = {
@@ -40,8 +40,8 @@ const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 
 // Homepage slideshow: the two supplied background photographs, each with its own message and focal point.
 const HERO = {
-  growth: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vrFYk-6ySPC5TVIjFH9ISVRNNF6PDvPigIGT.jpg',
-  community: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-10-24%20at%2009.23.59%20%281%29-DvS386SW4NR2zic0auxKc9WvP1z56x.jpeg',
+  growth: 'vrFYk.jpg',
+  community: PHOTO.group,
 };
 const slides = [
   {
@@ -313,7 +313,6 @@ function Hero() {
     const requestedIndex = active;
     const load = (index) => new Promise((resolve) => {
       const img = new Image();
-      img.crossOrigin = 'anonymous';
       img.fetchPriority = index === requestedIndex ? 'high' : 'low';
       const props = photoProps(slides[index].file);
       img.sizes = props.sizes;
@@ -748,16 +747,6 @@ function Contact() {
   );
 }
 
-// The address is revealed on request, like a contact button that keeps the address out of casual scraping.
-function FooterEmail() {
-  const [shown, setShown] = useState(false);
-  return shown ? (
-    <a className="ft-email" href={`mailto:${PARTNERSHIP_EMAIL}`}><Icon name="mail" size={18} />{PARTNERSHIP_EMAIL}</a>
-  ) : (
-    <button className="ft-reveal" type="button" aria-expanded="false" onClick={() => setShown(true)}>Show email</button>
-  );
-}
-
 function Footer() {
   return (
     <>
@@ -783,7 +772,7 @@ function Footer() {
           </nav>
           <div className="ft-col ft-contact">
             <h3>Contact</h3>
-            <FooterEmail />
+            <a className="ft-email" href={`mailto:${PARTNERSHIP_EMAIL}`}><Icon name="mail" size={18} />{PARTNERSHIP_EMAIL}</a>
           </div>
         </div>
         <div className="page-width ft-bottom">
@@ -797,13 +786,15 @@ function Footer() {
 }
 
 export default function App() {
-  const [route, setRoute] = useState(() => window.location.hash || window.location.pathname);
+  const readRoute = () => `${window.location.pathname}${window.location.hash}`;
+  const [route, setRoute] = useState(readRoute);
   useEffect(() => {
-    const onHash = () => setRoute(window.location.hash || window.location.pathname);
-    window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
+    const onChange = () => setRoute(readRoute());
+    window.addEventListener('hashchange', onChange);
+    window.addEventListener('popstate', onChange);
+    return () => { window.removeEventListener('hashchange', onChange); window.removeEventListener('popstate', onChange); };
   }, []);
-  const isAdmin = route.startsWith('#/admin') || route === '/admin';
+  const isAdmin = /^\/admin\/?(#|$)/.test(route) || route.includes('#/admin');
   useReveals(isAdmin);
   if (isAdmin) return <Suspense fallback={<p className="admin-note">Loading…</p>}><Admin /></Suspense>;
   return (
