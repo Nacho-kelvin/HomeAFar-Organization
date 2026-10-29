@@ -264,3 +264,23 @@ body { font-family: var(--sans); letter-spacing: -0.008em; }
   .intro-visual .photo-frame-tall { height: 430px; }
   .intro-visual .photo-inset { bottom: 62px; padding: 10px; }
 }
+
+/* Editorial hero treatment from the reference: strong serif title, warm italic accent, calm readable copy. */
+.hero-slide-copy h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: .93;
+  text-wrap: balance;
+}
+.hero-slide-copy h1 em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+}
+.hero-slide-copy .eyebrow { color: var(--gold-light); }
+.hero-slide-copy p { max-width: 34ch; }
+@media (max-width: 620px) {
+  .hero-slide-copy h1 { font-size: clamp(42px, 11.5vw, 60px); }
+  .hero-slide-copy p { font-size: 17px; line-height: 1.55; }
+}
