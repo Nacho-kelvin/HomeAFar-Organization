@@ -492,7 +492,7 @@ function ImageDialog({ items, index, onClose, onStep }) {
     <dialog className="image-dialog" ref={ref} aria-label={item.caption || item.alt} onClose={onClose} onKeyDown={onKeyDown}
       onClick={(event) => { if (event.target === ref.current) ref.current.close(); }}>
       <figure>
-        <img {...props} alt={item.alt} />
+        <img {...props} alt={item.alt} loading="lazy" decoding="async" />
         {item.caption && <figcaption>{item.caption}</figcaption>}
       </figure>
       <button className="dialog-close" type="button" autoFocus aria-label="Close photo" onClick={() => ref.current.close()}><span aria-hidden="true">×</span></button>

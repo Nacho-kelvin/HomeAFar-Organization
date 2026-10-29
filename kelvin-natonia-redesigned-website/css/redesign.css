@@ -506,3 +506,16 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
     .site-footer { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   }
 }
+
+/* Cross-device photo and overflow safeguards. */
+html { overflow-x: clip; }
+.hero-slide img, .story-grid img, .gathering-photo img, .program-thumb img, .team-photo img {
+  display: block;
+  max-width: 100%;
+}
+@media (max-width: 430px) {
+  .hero-slide img { object-position: center center; }
+  .hero-slide-copy { padding-inline: 0; }
+  .hero-slide-copy p { max-width: 34ch; }
+  .hero-controls { padding-bottom: max(0px, env(safe-area-inset-bottom)); }
+}
