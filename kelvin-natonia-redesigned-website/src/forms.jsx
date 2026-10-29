@@ -74,8 +74,9 @@ const SubmitButton = ({ status, children, busyText = 'Sending…' }) => (
   </button>
 );
 const Banner = ({ status, message }) => status === 'error' ? <p className="form-banner form-banner-error" role="alert">{message}</p> : null;
+const focusOnce = (el) => { if (el && !el.dataset.focused) { el.dataset.focused = '1'; el.focus(); } };
 const Success = ({ title, children, onAgain, again }) => (
-  <div className="form-success" role="status" tabIndex={-1} ref={(el) => el?.focus()}>
+  <div className="form-success" role="status" tabIndex={-1} ref={focusOnce}>
     <span className="success-mark" aria-hidden="true"><Icon name="check" size={22} /></span><h3>{title}</h3><p>{children}</p>
     <button className="underlined-link" type="button" onClick={onAgain}>{again}</button>
   </div>
@@ -163,7 +164,7 @@ export function StoryForm() {
       </div>
       <Field id="story-body" label="Your story" error={e.body} hint={`${v.body.trim().length} / 10,000 characters (minimum 100). English or French.`}><textarea {...aria('story-body', e.body, true)} rows={9} maxLength={10000} required value={v.body} onChange={(x) => set('body', x.target.value)} /></Field>
       <Field id="story-image" label="Supporting image" optional error={e.image || imageProblem} hint="JPG, PNG or WebP, up to 3 MB. Only include people who have agreed to appear.">
-        <input id="story-image" name="story-image" type="file" accept="image/jpeg,image/png,image/webp" ref={fileInput} onChange={pickFile} aria-describedby="story-image-hint" />
+        <input id="story-image" name="story-image" type="file" accept="image/jpeg,image/png,image/webp" ref={fileInput} onChange={pickFile} aria-invalid={(e.image || imageProblem) ? 'true' : 'false'} aria-describedby={(e.image || imageProblem) ? 'story-image-error' : 'story-image-hint'} />
       </Field>
       <div className={`field field-check${e.consent ? ' has-error' : ''}`}>
         <label className="check"><input {...aria('story-consent', e.consent)} type="checkbox" checked={v.consent} onChange={(x) => set('consent', x.target.checked)} required /><span>I confirm this story is mine to share and I give HomeAFar permission to publish it on this website after review, with the name I chose above.</span></label>

@@ -34,15 +34,22 @@ export default function Admin() {
   }, []);
 
   useEffect(() => {
+    const previousTitle = document.title;
     document.title = 'Admin — HomeAFar';
-    if (!isConfigured) { setPhase('unconfigured'); return undefined; }
+    const robots = document.createElement('meta');
+    robots.name = 'robots';
+    robots.content = 'noindex, nofollow';
+    document.head.appendChild(robots);
+    const restore = () => { document.title = previousTitle; robots.remove(); };
+    if (!isConfigured) { setPhase('unconfigured'); return restore; }
     let subscription;
     getSupabase().then((client) => {
+      if (!client) { setPhase('unconfigured'); return; }
       setSupabase(client);
       check(client);
       subscription = client.auth.onAuthStateChange((event) => { if (event === 'SIGNED_OUT') setPhase('signin'); }).data.subscription;
     });
-    return () => subscription?.unsubscribe();
+    return () => { subscription?.unsubscribe(); restore(); };
   }, [check]);
 
   const signIn = async (event) => {

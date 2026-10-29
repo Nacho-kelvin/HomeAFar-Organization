@@ -1,0 +1,139 @@
+/* ==========================================================================
+   HomeAFar refinement layer — loaded after polish.css, before spacing.css.
+   Presentation only. Same palette (cream, brown, gold, forest, terracotta),
+   same layout; this layer adds finish: quieter type details, softer depth,
+   gentle motion and a consistent gold "thread" through every interaction.
+   (Spacing and page gutters stay owned by spacing.css.)
+   ========================================================================== */
+
+:root {
+  --shadow-soft: 0 1px 2px rgba(60, 39, 27, .05), 0 12px 32px rgba(60, 39, 27, .08);
+  --shadow-lift: 0 2px 4px rgba(60, 39, 27, .06), 0 24px 48px rgba(60, 39, 27, .14);
+  --hairline-gold: rgba(213, 166, 60, .45);
+  --hairline-brown: rgba(89, 59, 43, .14);
+}
+
+/* ---------- foundations ---------- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  -webkit-tap-highlight-color: rgba(213, 166, 60, .22);
+}
+img { -webkit-user-drag: none; }
+* { scrollbar-width: thin; scrollbar-color: var(--gold) var(--cream-deep); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--cream-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border: 2px solid var(--cream-deep); border-radius: 999px; }
+
+/* Bug fix: the viewer's "previous" arrow had no rule, so it pointed the same way as "next". */
+.icon-back { transform: rotate(180deg); }
+
+/* ---------- typography ---------- */
+/* Eyebrows become small, widely spaced capitals: the quiet label that makes the serif headlines feel editorial. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.eyebrow-line { width: 40px; height: 1px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.editorial-kicker { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+
+.section-heading { letter-spacing: -.026em; }
+.section-heading em, .hero h1 em { font-weight: 300; letter-spacing: -.015em; }
+.body-copy, .programs-lede, .story-lede { font-weight: 400; }
+.hero h1 { text-shadow: 0 2px 30px rgba(29, 20, 14, .45); }
+
+/* ---------- header ---------- */
+.site-header { -webkit-backdrop-filter: saturate(1.3) blur(14px); backdrop-filter: saturate(1.3) blur(14px); }
+.site-header.is-scrolled { box-shadow: 0 1px 0 var(--hairline-gold), 0 16px 40px rgba(60, 39, 27, .09); }
+.nav-link { letter-spacing: .01em; }
+.nav-join { transition: background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease); }
+.nav-join:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(36, 77, 58, .28); }
+.menu-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+/* ---------- buttons & links ---------- */
+.button { transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease); }
+.button:hover { transform: translateY(-2px); }
+.button:active { transform: translateY(0); }
+.button-gold { box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 10px 24px rgba(213, 166, 60, .32); }
+.button-gold:hover { box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset, 0 16px 32px rgba(213, 166, 60, .42); }
+.button-dark:hover { box-shadow: 0 14px 28px rgba(36, 77, 58, .28); }
+.button .icon, .underlined-link .icon, .nav-join .icon { transition: transform .3s var(--ease); }
+.button:hover .icon, .underlined-link:hover .icon, .nav-join:hover .icon { transform: translateX(4px); }
+.underlined-link { transition: color .25s ease, border-color .25s ease, gap .3s var(--ease); }
+.underlined-link:hover { border-bottom-color: var(--terracotta); }
+
+/* ---------- photography ---------- */
+.photo-frame, .gathering-photo, .team-community-photo, .program-community-photo, .opportunities-photo, .contact-photo { box-shadow: var(--shadow-soft); }
+.moment button { box-shadow: var(--shadow-soft); transition: box-shadow .4s var(--ease), transform .4s var(--ease); }
+.moment button:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
+.story-grid .editorial-card { transition: transform .5s var(--ease); }
+.story-grid .editorial-card > img { box-shadow: var(--shadow-soft); transition: box-shadow .5s var(--ease), filter .5s ease; }
+.story-grid .editorial-card:hover > img { box-shadow: var(--shadow-lift); filter: saturate(1.06); }
+.xf-dot { transition: background .3s ease, transform .3s var(--ease), width .3s var(--ease); }
+.xf-dot.is-active { transform: scale(1.15); }
+
+/* ---------- cards ---------- */
+.team-card, .partner-category { box-shadow: var(--shadow-soft); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+.team-card:hover, .partner-category:hover { transform: translateY(-5px); box-shadow: var(--shadow-lift); }
+.team-photo { box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--hairline-gold); }
+.team-card h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -.01em; }
+.contact-detail { transition: background .3s ease, transform .3s var(--ease), box-shadow .3s var(--ease); }
+.contact-detail:hover { transform: translateX(4px); box-shadow: var(--shadow-soft); }
+.date-badge { box-shadow: var(--shadow-soft); }
+.chip { transition: background .3s ease, color .3s ease, border-color .3s ease, transform .3s var(--ease); }
+.chip:hover { color: var(--white); background: var(--forest); border-color: var(--forest); transform: translateY(-2px); }
+.program-status { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+.mission-vision article { position: relative; }
+.mission-vision article::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(232, 200, 115, .3); pointer-events: none; }
+.story-invitation, .partner-cta, .country-series { box-shadow: var(--shadow-soft); }
+
+/* ---------- forms ---------- */
+.hf-form { box-shadow: var(--shadow-soft); }
+.hf-form label { letter-spacing: .01em; }
+.hf-form input[type="text"], .hf-form input[type="email"], .hf-form input[type="password"], .hf-form select, .hf-form textarea {
+  transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.hf-form input:focus-visible, .hf-form select:focus-visible, .hf-form textarea:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(213, 166, 60, .25);
+}
+.hf-form input[aria-invalid="true"], .hf-form select[aria-invalid="true"], .hf-form textarea[aria-invalid="true"] { border-color: var(--terracotta-deep); }
+.hf-form input[type="file"] { max-width: 100%; }
+.hf-form input[type="checkbox"] { accent-color: var(--forest); }
+.form-submit { transition: background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease), opacity .2s ease; }
+.form-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(36, 77, 58, .28); }
+.form-submit:disabled { cursor: progress; opacity: .8; }
+.form-success { box-shadow: var(--shadow-soft); }
+
+/* ---------- footer ---------- */
+.ft-social a { transition: background .3s ease, color .3s ease, transform .3s var(--ease); }
+.ft-social a:hover { transform: translateY(-3px); }
+.ft .brand-mark { filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .3)); }
+
+/* ---------- admin ---------- */
+.admin-card { box-shadow: var(--shadow-soft); }
+.admin-btn { transition: background .25s ease, color .25s ease, border-color .25s ease; }
+
+/* ---------- motion safety & print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .button:hover, .nav-join:hover, .team-card:hover, .partner-category:hover, .moment button:hover, .chip:hover,
+  .contact-detail:hover, .form-submit:hover:not(:disabled), .ft-social a:hover { transform: none; }
+  .button:hover .icon, .underlined-link:hover .icon, .nav-join:hover .icon { transform: none; }
+}
+@media (hover: none) {
+  .team-card:hover, .partner-category:hover, .moment button:hover, .chip:hover, .contact-detail:hover { transform: none; }
+}
+@media print {
+  .site-header, .scroll-progress, .to-top, .hero-controls, .scroll-cue, .skip-link { display: none !important; }
+  body { background: #fff; color: #000; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
