@@ -38,30 +38,31 @@ const ALT = {
 };
 const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 
-// Homepage slideshow: scenes of travel, culture and home plus one community photograph, each with its own message and focal point.
+// Homepage slideshow: the two supplied background photographs, each with its own message and focal point.
 const HERO = {
-  network: '01_traveler_savanna_africa_network.jpg', // traveller looking at a glowing network map of Africa at sunset
+  growth: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vrFYk-6ySPC5TVIjFH9ISVRNNF6PDvPigIGT.jpg',
+  community: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-10-24%20at%2009.23.59%20%281%29-DvS386SW4NR2zic0auxKc9WvP1z56x.jpeg',
 };
 const slides = [
   {
-    file: HERO.network,
-    eyebrow: 'Belong anywhere',
+    file: HERO.growth,
+    eyebrow: 'Grow together',
     title: 'Your roots are',
     accent: 'still growing.',
     copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
-    alt: 'Traveller looking at a glowing network map of Africa at sunset.',
+    alt: 'Young plants growing among the roots of a tree in warm sunlight.',
     pos: 'center',
-    posM: 'center',
+    posM: 'center 58%',
   },
   {
-    file: PHOTO.couch,
+    file: HERO.community,
     eyebrow: 'Find your people',
     title: 'Community makes',
     accent: 'everywhere feel like home.',
     copy: 'Meet a generous community that celebrates where you come from and where you are going.',
-    alt: ALT.couch,
-    pos: 'center 50%',
-    posM: 'center 38%',
+    alt: 'HomeAFar community members smiling together outdoors.',
+    pos: 'center 54%',
+    posM: 'center 58%',
   },
 ];
 

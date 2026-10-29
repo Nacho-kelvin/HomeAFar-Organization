@@ -31,6 +31,7 @@ describe('whole page', () => {
     for (const img of imgs) {
       expect(img.getAttribute('alt')).not.toBeNull(); // empty alt is allowed, missing is not
       const src = decodeURIComponent(img.getAttribute('src'));
+      if (/^https?:\/\//.test(src)) continue;
       expect(existsSync(`assets${src}`), `${src} does not exist`).toBe(true);
     }
   });
