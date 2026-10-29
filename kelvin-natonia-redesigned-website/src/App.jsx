@@ -72,7 +72,7 @@ const SHOW = {
   programs: [shot('group', 'center 56%')],
   team: [shot('couch', 'center 50%'), shot('group', 'center 56%'), shot('welcome', 'center 45%')],
   events: [shot('welcome', 'center 45%'), shot('passport', 'center 20%'), shot('facepaint', 'center 66%')],
-  opportunities: [shot('facepaint', 'center 60%'), shot('group', 'center 56%'), shot('circle', 'center 42%')],
+  opportunities: [shot('circle', 'center 42%')],
   contact: [shot('couch', 'center 50%'), shot('welcome', 'center 45%')],
   join: [shot('group', 'center 56%'), shot('welcome', 'center 45%'), shot('couch', 'center 52%')],
 };
