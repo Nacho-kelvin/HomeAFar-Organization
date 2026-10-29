@@ -642,6 +642,34 @@ body.menu-open { overflow: hidden; }
   .brand-name { font-size: 19px; }
 }
 
+/* Final mobile safeguards: prevent narrow screens from creating horizontal scroll. */
+@media (max-width: 720px) {
+  :where(.page-width) { width: min(100% - 36px, var(--page-width)); }
+  .nav-shell { gap: 12px; }
+  .brand-copy { min-width: 0; }
+  .brand-tagline { overflow: hidden; text-overflow: ellipsis; }
+  .button { width: min(100%, 320px); }
+  .hero-actions .button { width: 100%; }
+  .section-heading-row > *, .story-invitation > *, .country-series > *, .contact-inner > *, .opportunities-layout > * { min-width: 0; }
+  .contact-detail { grid-template-columns: 30px minmax(0, 1fr) 20px; overflow-wrap: anywhere; }
+  .contact-detail > span:nth-child(2) { min-width: 0; }
+  .contact-detail > span:nth-child(2) a { overflow-wrap: anywhere; }
+  .story-invitation, .country-series { overflow: hidden; }
+  .gathering-stamp { z-index: 1; }
+}
+
+@media (max-width: 420px) {
+  .nav-shell { width: calc(100% - 24px); }
+  :where(.page-width) { width: calc(100% - 24px); }
+  .hero-content { padding-block: 56px 88px; }
+  .hero h1 { font-size: clamp(34px, 11vw, 42px); }
+  .hero-intro { font-size: 14px; line-height: 1.65; }
+  .contact-detail { gap: 8px; font-size: 13px; }
+  .gathering-photo { margin-right: 0; }
+  .gathering-stamp { right: 8px; bottom: -18px; width: 92px; height: 92px; }
+}
+
+
 /* ===== Master brief additions: sliders, gallery, team photos, program thumbs, slide-in reveals ===== */
 .program-thumb { width: 100%; aspect-ratio: 16 / 10; margin: -4px 0 16px; overflow: hidden; background: var(--cream-deep); }
 .program-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
