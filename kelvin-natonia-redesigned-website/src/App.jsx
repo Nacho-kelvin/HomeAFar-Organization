@@ -768,7 +768,6 @@ function Footer() {
         <div className="page-width ft-inner">
           <div className="ft-brand">
             <Brand footer />
-            <p className="ft-line">Home is wherever we find each other.</p>
             <ul className="ft-social" aria-label="HomeAFar on social media">
               <li><a href="https://www.instagram.com/home.a.far/" target="_blank" rel="noopener noreferrer" aria-label="HomeAFar on Instagram (opens in a new tab)"><Icon name="instagram" size={22} /></a></li>
             </ul>
