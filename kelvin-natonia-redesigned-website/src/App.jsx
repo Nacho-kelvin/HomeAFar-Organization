@@ -310,22 +310,26 @@ function Hero() {
   // Load the chosen photo first, swap only when it is ready (no blank flash), then warm up the next one.
   useEffect(() => {
     let cancelled = false;
+    const requestedIndex = active;
     const load = (index) => new Promise((resolve) => {
       const img = new Image();
       img.crossOrigin = 'anonymous';
-      img.fetchPriority = index === active ? 'high' : 'low';
+      img.fetchPriority = index === requestedIndex ? 'high' : 'low';
       const props = photoProps(slides[index].file);
-      img.sizes = props.sizes; img.srcset = props.srcSet; img.src = props.src;
+      img.sizes = props.sizes;
+      img.srcset = props.srcSet;
+      img.onload = resolve;
+      img.onerror = resolve;
+      img.src = props.src;
       if (img.decode) img.decode().then(resolve, resolve);
-      else { img.onload = resolve; img.onerror = resolve; }
     });
-    load(active).then(() => {
+    load(requestedIndex).then(() => {
       if (cancelled) return;
-      setShown(active);
-      load((active + 1) % slides.length);
+      setShown(requestedIndex);
+      load((requestedIndex + 1) % slides.length);
     });
     return () => { cancelled = true; };
-  }, [active]);
+  }, [active, slides]);
 
   // Autoplay: every manual change restarts the 6 second countdown.
   useEffect(() => {
