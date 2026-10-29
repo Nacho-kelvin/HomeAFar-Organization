@@ -487,3 +487,22 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
   .hero-controls .slide-indicator { width: 26px; }
   .section-shell { padding-inline: 20px; }
 }
+
+@media (max-width: 430px) {
+  .site-header { padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right)); }
+  .hero-content { padding-inline: 16px; padding-bottom: 76px; }
+  .hero-actions { align-items: stretch; }
+  .hero-actions .button { width: 100%; justify-content: center; }
+  .hero-controls { left: 16px; right: 16px; }
+  .section-shell { padding-inline: 16px; }
+  .contact-grid, .gathering-grid, .intro-grid { gap: 24px; }
+  .hf-form { padding: 20px 16px; }
+  .hf-form .field { gap: 7px; }
+  .hf-form button[type="submit"] { width: 100%; }
+}
+
+@supports (padding: max(0px)) {
+  @media (max-width: 430px) {
+    .site-footer { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  }
+}
