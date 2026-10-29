@@ -46,9 +46,9 @@ const HERO = {
 const slides = [
   {
     file: HERO.growth,
-    eyebrow: 'Grow together',
-    title: 'Your roots are',
-    accent: 'still growing.',
+    eyebrow: 'Rooted in home',
+    title: 'A home you',
+    accent: 'can carry.',
     copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
     alt: 'Young plants growing among the roots of a tree in warm sunlight.',
     pos: 'center',
@@ -57,8 +57,8 @@ const slides = [
   {
     file: HERO.community,
     eyebrow: 'Find your people',
-    title: 'Community makes',
-    accent: 'everywhere feel like home.',
+    title: 'Belonging lives',
+    accent: 'wherever you are.',
     copy: 'Meet a generous community that celebrates where you come from and where you are going.',
     alt: 'HomeAFar community members smiling together outdoors.',
     pos: 'center 54%',
