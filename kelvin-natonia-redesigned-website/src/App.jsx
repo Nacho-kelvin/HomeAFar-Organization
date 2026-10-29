@@ -188,19 +188,28 @@ const moments = [
 ].map((item) => ({ ...item, file: PHOTO[item.key] }));
 
 const teamMembers = [
-  { name: 'Murugi Njiru', role: 'Founder & Managing Director', bio: 'Originated the HomeAFar vision and leads its direction, events, storytelling concepts and community growth.', photo: null },
-  { name: 'Charles', role: 'Co-founder', bio: '', photo: null },
-  { name: 'Marcell', role: 'Technical Co-Founder & Director of Strategy, Creative & Technology', bio: 'Contributes to strategy, digital and technology direction, and partnership development.', photo: null },
-  { name: 'Eunice Wangui', role: 'Events & Experiences Lead', bio: 'Supports the planning and coordination of HomeAFar events and community experiences.', photo: null },
+  { name: 'Murugi Njiru', role: 'Founder & Managing Director', bio: 'Originated the HomeAFar vision and leads its direction, events, storytelling concepts and community growth.', photo: null, icon: 'compass', gradientStart: '#D4A574', gradientEnd: '#8B6F47' },
+  { name: 'Charles', role: 'Co-founder', bio: 'Builds meaningful partnerships and community connections.', photo: null, icon: 'handshake', gradientStart: '#A0826D', gradientEnd: '#6B5D52' },
+  { name: 'Marcell', role: 'Technical Co-Founder & Director of Strategy, Creative & Technology', bio: 'Contributes to strategy, digital and technology direction, and partnership development.', photo: null, icon: 'gear', gradientStart: '#8B7355', gradientEnd: '#5D4E47' },
+  { name: 'Eunice Wangui', role: 'Events & Experiences Lead', bio: 'Supports the planning and coordination of HomeAFar events and community experiences.', photo: null, icon: 'star', gradientStart: '#C9A961', gradientEnd: '#8B6F47' },
 ];
 
-const Avatar = ({ member }) => (
-  <div className={`team-photo${member.open ? ' is-open' : ''}`}>
-    {member.photo
-      ? <img src={`/images/team/${member.photo}`} alt={`Portrait of ${member.name}`} width="96" height="96" loading="lazy" decoding="async" />
-      : <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false"><circle cx="48" cy="38" r="17" /><path d="M14 90c3-19 16-30 34-30s31 11 34 30Z" /></svg>}
-  </div>
-);
+const Avatar = ({ member }) => {
+  const icons = {
+    compass: <svg viewBox="0 0 24 24" fill="currentColor" className="avatar-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 5-5 5 5-5 5z"/></svg>,
+    handshake: <svg viewBox="0 0 24 24" fill="currentColor" className="avatar-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>,
+    gear: <svg viewBox="0 0 24 24" fill="currentColor" className="avatar-icon"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.62l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.48.11.62l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.11.62l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.48-.12-.62l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>,
+    star: <svg viewBox="0 0 24 24" fill="currentColor" className="avatar-icon"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21 12 17.27z"/></svg>,
+  };
+
+  return (
+    <div className={`team-photo${member.open ? ' is-open' : ''}`} style={{ background: `linear-gradient(135deg, ${member.gradientStart} 0%, ${member.gradientEnd} 100%)` }}>
+      {member.photo
+        ? <img src={`/images/team/${member.photo}`} alt={`Portrait of ${member.name}`} width="96" height="96" loading="lazy" decoding="async" />
+        : <div className="avatar-placeholder" aria-hidden="true">{icons[member.icon] || icons.compass}</div>}
+    </div>
+  );
+};
 
 const useReveals = (route) => {
   useEffect(() => {
