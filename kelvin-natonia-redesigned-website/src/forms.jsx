@@ -103,7 +103,7 @@ export function ContactForm() {
         <Field id="contact-email" label="Email address" error={e.email}><input {...aria('contact-email', e.email)} type="email" autoComplete="email" inputMode="email" maxLength={254} required value={v.email} onChange={(x) => set('email', x.target.value)} /></Field>
       </div>
       <Field id="contact-subject" label="Subject" error={e.subject}><input {...aria('contact-subject', e.subject)} type="text" maxLength={150} required value={v.subject} onChange={(x) => set('subject', x.target.value)} /></Field>
-      <Field id="contact-message" label="Message" error={e.message}><textarea {...aria('contact-message', e.message)} rows={5} maxLength={5000} required value={v.message} onChange={(x) => set('message', x.target.value)} /></Field>
+      <Field id="contact-message" label="Message" error={e.message}><textarea {...aria('contact-message', e.message)} rows={5} maxLength={5000} required value={v.message} onChange={(x) => set('message', x.target.value)} /><span className="field-counter" aria-live="polite">{v.message.length.toLocaleString()} / 5,000</span></Field>
       <Honeypot value={v.website} onChange={(x) => set('website', x)} />
       <p className="form-privacy">We use your details only to reply to you. Please do not include health, immigration or legal-case details.</p>
       <Banner status={f.status} message={f.message} />

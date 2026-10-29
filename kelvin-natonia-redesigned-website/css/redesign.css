@@ -398,6 +398,14 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
 @media (max-width: 720px) {
   .intro-visual { min-height: 0; }
   .intro-visual img, .gathering-photo img, .program-thumb img { max-width: 100%; }
+  .contact-details { min-width: 0; }
+  .contact-detail { min-width: 0; }
+  .contact-detail > span:nth-child(2) { min-width: 0; overflow-wrap: anywhere; }
+  .contact-detail .contact-arrow { flex: 0 0 auto; }
+  .hf-form { padding: 24px 18px; }
+  .hf-form h3 { font-size: 25px; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .form-submit { width: 100%; }
   .team-grid { grid-template-columns: 1fr; }
   .team-card { min-width: 0; }
   .program-band .program-thumb, .program-band.is-flipped .program-thumb { width: 100%; max-width: none; margin-right: 0; }
