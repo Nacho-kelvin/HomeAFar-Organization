@@ -1,5 +1,9 @@
 {
   "installCommand": "npm install --prefix kelvin-natonia-redesigned-website",
   "buildCommand": "npm run build --prefix kelvin-natonia-redesigned-website",
-  "outputDirectory": "kelvin-natonia-redesigned-website/dist"
+  "outputDirectory": "kelvin-natonia-redesigned-website/dist",
+  "rewrites": [
+    { "source": "/admin", "destination": "/index.html" },
+    { "source": "/admin/:path*", "destination": "/index.html" }
+  ]
 }

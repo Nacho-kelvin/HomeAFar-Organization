@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://homeafar-original-colours.vercel.app/sitemap.xml
