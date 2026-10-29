@@ -468,3 +468,22 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
   .underlined-link { min-height: 44px; }
   .underlined-link { padding-block: 10px 8px; }
 }
+
+/* Final responsive guardrails: keep layered artwork and controls inside the viewport. */
+@media (max-width: 860px) {
+  .intro-visual { min-height: 0; }
+  .intro-visual img { height: auto; }
+  .gathering-photo { margin-right: 0; }
+  .hero-content { padding-inline: 20px; }
+  .hero-slide-copy { min-width: 0; }
+}
+
+@media (max-width: 520px) {
+  .hero h1 { font-size: clamp(38px, 12vw, 54px); }
+  .hero-actions { gap: 10px; }
+  .hero-actions .button { min-height: 44px; padding: 10px 16px; }
+  .hero-controls { bottom: 16px; }
+  .hero-controls .slide-indicators { gap: 6px; }
+  .hero-controls .slide-indicator { width: 26px; }
+  .section-shell { padding-inline: 20px; }
+}
