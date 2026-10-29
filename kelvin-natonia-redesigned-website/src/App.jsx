@@ -312,6 +312,8 @@ function Hero() {
     let cancelled = false;
     const load = (index) => new Promise((resolve) => {
       const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.fetchPriority = index === active ? 'high' : 'low';
       const props = photoProps(slides[index].file);
       img.sizes = props.sizes; img.srcset = props.srcSet; img.src = props.src;
       if (img.decode) img.decode().then(resolve, resolve);

@@ -21,5 +21,5 @@ export const photoProps = (file, sizes = '100vw') => {
 };
 
 export const Photo = ({ file, alt, sizes, eager = false, ...rest }) => (
-  <img {...photoProps(file, sizes)} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" {...rest} />
+  <img {...photoProps(file, sizes)} alt={alt} loading={eager ? 'eager' : 'lazy'} fetchPriority={eager ? 'high' : 'low'} decoding="async" {...rest} />
 );
