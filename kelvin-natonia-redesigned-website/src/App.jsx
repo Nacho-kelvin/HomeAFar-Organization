@@ -53,6 +53,16 @@ const slides = [
     pos: 'center',
     posM: 'center',
   },
+  {
+    file: PHOTO.welcome,
+    eyebrow: 'Find your people',
+    title: 'Community makes',
+    accent: 'everywhere feel like home.',
+    copy: 'Meet a generous community that celebrates where you come from and where you are going.',
+    alt: ALT.welcome,
+    pos: 'center 45%',
+    posM: 'center 35%',
+  },
 ];
 
 // Section slideshows. Each frame cycles through photos that suit its shape; focal points keep faces in view.
