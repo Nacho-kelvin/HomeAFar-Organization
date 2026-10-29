@@ -781,13 +781,13 @@ function Footer() {
 }
 
 export default function App() {
-  const [route, setRoute] = useState(() => window.location.hash);
+  const [route, setRoute] = useState(() => window.location.hash || window.location.pathname);
   useEffect(() => {
-    const onHash = () => setRoute(window.location.hash);
+    const onHash = () => setRoute(window.location.hash || window.location.pathname);
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
-  const isAdmin = route.startsWith('#/admin');
+  const isAdmin = route.startsWith('#/admin') || route === '/admin';
   useReveals(isAdmin);
   if (isAdmin) return <Suspense fallback={<p className="admin-note">Loading…</p>}><Admin /></Suspense>;
   return (
