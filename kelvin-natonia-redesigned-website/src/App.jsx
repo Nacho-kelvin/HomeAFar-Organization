@@ -54,14 +54,14 @@ const slides = [
     posM: 'center',
   },
   {
-    file: PHOTO.welcome,
+    file: PHOTO.couch,
     eyebrow: 'Find your people',
     title: 'Community makes',
     accent: 'everywhere feel like home.',
     copy: 'Meet a generous community that celebrates where you come from and where you are going.',
-    alt: ALT.welcome,
-    pos: 'center 45%',
-    posM: 'center 35%',
+    alt: ALT.couch,
+    pos: 'center 50%',
+    posM: 'center 38%',
   },
 ];
 
