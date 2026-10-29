@@ -1,0 +1,5 @@
+{
+  "installCommand": "npm install --prefix kelvin-natonia-redesigned-website",
+  "buildCommand": "npm run build --prefix kelvin-natonia-redesigned-website",
+  "outputDirectory": "kelvin-natonia-redesigned-website/dist"
+}
