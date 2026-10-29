@@ -185,3 +185,21 @@
   .hero-slide-copy h1 { font-size: clamp(34px, 11vw, 46px); }
   .hero-actions { width: 100%; }
 }
+
+/* Typography refinement — keeps the existing Fraunces/Figtree direction while improving rhythm and hierarchy. */
+html { font-synthesis: none; text-rendering: optimizeLegibility; }
+body { font-family: var(--sans); letter-spacing: -0.008em; }
+.brand-name, .wordmark, .section-heading, .hero h1, .join-content h2, .shared-heading, .shared-card h4, .hf-form h2, .hf-form h3 {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 48, "SOFT" 35, "WONK" 1;
+  text-wrap: balance;
+}
+.hero h1 { max-width: 11ch; font-weight: 600; letter-spacing: -.035em; line-height: .94; }
+.hero-slide-copy p, .body-copy, .section-intro, .shared-card p { text-wrap: pretty; }
+.button, .nav-link, .brand-tagline, .eyebrow, .form-label { letter-spacing: .01em; }
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .hero h1 { max-width: 12ch; font-size: clamp(38px, 11vw, 58px); line-height: .96; }
+  .section-heading { font-size: clamp(38px, 12vw, 54px); }
+}
