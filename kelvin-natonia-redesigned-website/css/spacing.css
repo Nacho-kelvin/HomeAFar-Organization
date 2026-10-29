@@ -1,0 +1,124 @@
+/* ==========================================================================
+   HomeAFar spacing system — loaded last, single owner of rhythm and gutters.
+   One scale (4/8 based) is used for every gap, so all sections breathe the same way.
+   Colours, fonts and content are untouched; this layer is presentation only.
+   ========================================================================== */
+
+:root {
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+  --space-9: 128px;
+  --section-y: clamp(80px, 10vw, 152px);     /* vertical padding of every full section */
+  --block-gap: clamp(56px, 7vw, 104px);      /* gap between a section's major blocks */
+  --heading-gap: clamp(40px, 5vw, 72px);     /* gap below a section heading row */
+  --gutter: clamp(20px, 5vw, 96px);          /* side margin of the page column */
+}
+
+.page-width { width: min(var(--page-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+.section-space { padding-block: var(--section-y); }
+
+/* ---------- reading comfort ---------- */
+.section-heading, .hero h1, .join-content h2, .story-invitation h3, .partner-cta h3, .gallery-head h3 { text-wrap: balance; }
+.body-copy, .programs-lede, .story-lede, .editorial-copy p, .program-text p, .event-note, .emblem-lede { text-wrap: pretty; }
+.section-heading { margin-top: 0; margin-bottom: 0; }
+.eyebrow { margin-bottom: var(--space-3); }
+
+/* ---------- section heading rows ---------- */
+.section-heading-row { gap: var(--space-4) clamp(40px, 6vw, 96px); margin-bottom: var(--heading-gap); }
+.stories-section .section-heading-row { margin-bottom: var(--heading-gap); }
+
+/* ---------- about ---------- */
+.intro-grid { gap: clamp(48px, 7vw, 112px); }
+.intro-copy { max-width: 600px; padding: var(--space-1) 0 var(--space-1) var(--space-5); }
+.intro-copy .section-heading { font-size: clamp(38px, 4.4vw, 60px); }
+.intro-copy .body-copy { margin-top: var(--space-5); max-width: 540px; }
+/* The decorative drop cap split the brand name ("H omeAFar"), so the paragraph now reads as one word. */
+.intro-copy .body-copy::first-letter { float: none; margin: 0; color: inherit; font: inherit; }
+.intro-copy .underlined-link { margin-top: var(--space-5); }
+
+/* ---------- programs ---------- */
+.programs-intro { padding-block: var(--section-y) var(--block-gap); }
+.program-band { padding-block: clamp(64px, 8vw, 120px); }
+.program-band-grid { gap: clamp(48px, 7vw, 112px); }
+.program-status { margin-bottom: var(--space-4); }
+.program-text p { margin-top: var(--space-4); }
+.program-text small { margin-top: var(--space-4); }
+.programs-outro { padding-block: var(--section-y); }
+.mission-vision { margin-bottom: var(--block-gap); }
+.mission-vision article { padding: clamp(32px, 4vw, 56px); }
+.mission-vision .mv-head { margin-bottom: var(--space-4); }
+
+/* ---------- stories: balanced editorial grid (no empty pockets) ---------- */
+.story-grid { gap: clamp(48px, 6vw, 80px) clamp(24px, 3vw, 48px); margin-top: 0; align-items: start; }
+.story-grid .story-1, .story-grid .story-3 { margin-top: 0; }
+.story-grid .editorial-card > img,
+.story-grid .story-0 > img, .story-grid .story-1 > img, .story-grid .story-2 > img {
+  aspect-ratio: auto; height: clamp(260px, 30vw, 420px);
+}
+.story-grid .editorial-copy { padding-top: var(--space-3); }
+.story-grid .editorial-card h3 { margin: var(--space-2) 0 var(--space-3); }
+.story-invitation { margin-top: var(--block-gap); padding: clamp(32px, 5vw, 64px); gap: var(--space-5); }
+.country-series { margin-top: var(--block-gap); padding: clamp(32px, 4.5vw, 56px); gap: clamp(32px, 5vw, 64px); }
+.gallery { margin-top: var(--block-gap); }
+.gallery-head { margin-bottom: var(--space-5); }
+.shared-stories { margin-top: var(--block-gap); }
+
+/* ---------- team ---------- */
+.team-community-photo { margin-top: var(--heading-gap); }
+.team-grid { gap: clamp(20px, 2.4vw, 32px); margin-top: var(--block-gap); }
+.team-card { padding: var(--space-5) var(--space-4); }
+
+/* ---------- events / opportunities / partners ---------- */
+.gathering-grid { gap: clamp(48px, 7vw, 112px); }
+.event-head { margin: var(--space-4) 0 var(--space-2); }
+.event-meta { margin-top: var(--space-4); }
+.event-note { margin: var(--space-4) 0 var(--space-4); }
+.invite-card { margin-bottom: var(--space-4); }
+.opportunities-layout { gap: clamp(48px, 7vw, 112px); }
+.chip-list { margin: var(--space-5) 0; gap: var(--space-2); }
+.partner-categories { margin-top: var(--heading-gap); gap: var(--space-4); }
+.partner-category { padding: var(--space-5) var(--space-5) var(--space-6); }
+.partner-benefits, .partner-cta { margin-top: var(--block-gap); }
+.partner-benefits { padding-top: var(--space-6); }
+.partner-benefits dl { gap: var(--space-5) var(--space-6); }
+.partner-showcase { margin-top: var(--block-gap); }
+
+/* ---------- join, forms, contact ---------- */
+.join-content { padding-block: clamp(80px, 9vw, 128px); }
+.join-content p:not(.eyebrow) { margin: var(--space-4) auto var(--space-5); }
+.join-form-section { padding-block: clamp(64px, 8vw, 120px); }
+.hf-form { gap: var(--space-4); padding: clamp(24px, 4vw, 56px); margin-top: var(--space-5); }
+.field { gap: var(--space-1); }
+.field-row { gap: var(--space-4); }
+.contact-inner { gap: clamp(48px, 7vw, 112px); align-items: start; }
+.contact-photo { margin-top: var(--space-5); }
+.contact-details { display: grid; gap: var(--space-3); }
+.contact-note { margin-top: var(--space-2); }
+
+/* ---------- privacy + footer ---------- */
+.privacy-section { padding-block: var(--space-8); }
+.ft-inner { padding-block: var(--space-8) var(--space-6); gap: var(--space-6); }
+.ft-bottom { padding-block: var(--space-4) var(--space-5); }
+
+/* ---------- small controls ---------- */
+/* 24x36 px scroll cue was below a comfortable tap size: enlarge the hit area, keep the same look. */
+.scroll-cue { min-width: 44px; min-height: 44px; display: grid; place-items: center; }
+
+/* ---------- tablet + mobile ---------- */
+@media (max-width: 860px) {
+  .story-grid .editorial-card > img { height: clamp(220px, 56vw, 340px); }
+  .privacy-section { padding-block: var(--space-7); }
+}
+@media (max-width: 620px) {
+  :root { --section-y: 72px; --block-gap: 56px; --heading-gap: 36px; }
+  .intro-copy { padding-left: var(--space-4); }
+  .program-band { padding-block: 56px; }
+  .partner-category { padding: var(--space-5) var(--space-4) var(--space-5); }
+  .field-row { gap: var(--space-4); }
+}

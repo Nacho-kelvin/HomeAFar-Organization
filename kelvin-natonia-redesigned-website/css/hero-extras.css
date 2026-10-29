@@ -1,0 +1,15 @@
+/* Hero additions for the new sunset photos. Uses the original warm brown, no new palette. */
+.hero-shade {
+  background:
+    linear-gradient(90deg, rgba(37, 24, 16, .8) 0%, rgba(37, 24, 16, .5) 45%, rgba(37, 24, 16, .05) 100%),
+    linear-gradient(0deg, rgba(29, 20, 14, .5) 0%, rgba(29, 20, 14, 0) 38%),
+    linear-gradient(180deg, rgba(29, 20, 14, .3) 0%, rgba(29, 20, 14, 0) 22%);
+}
+.hero h1, .hero-intro { text-shadow: 0 2px 22px rgba(29, 20, 14, .5); }
+@media (max-width: 980px) {
+  .hero-shade { background: linear-gradient(0deg, rgba(29, 20, 14, .88) 0%, rgba(37, 24, 16, .6) 48%, rgba(37, 24, 16, .3) 100%); }
+}
+
+/* Paint hero text immediately (no opacity fade) so the largest contentful paint is not delayed */
+.hero-slide-copy { animation-name: hero-copy-rise; }
+@keyframes hero-copy-rise { from { transform: translateY(12px); } to { transform: none; } }
