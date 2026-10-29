@@ -1,7 +1,7 @@
 // Supabase client. Only the public URL and anon key are ever used here; they are protected by Row Level Security.
 // Never put a service-role key in this project.
-const url = import.meta.env.VITE_SUPABASE_URL;
-const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const url = import.meta.env.VITE_SUPABASE_URL || import.meta.env.SUPABASE_URL;
+const key = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
 export const isConfigured = Boolean(url && key);
 export const storyImageUrl = (path) => (url && path ? `${url}/storage/v1/object/public/story-images/${path}` : null);
