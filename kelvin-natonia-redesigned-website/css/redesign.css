@@ -509,11 +509,25 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
 
 /* Cross-device photo and overflow safeguards. */
 html { overflow-x: clip; }
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: var(--pos, center center);
+}
+.hero { isolation: isolate; overflow: hidden; }
+.hero-shade, .hero-content, .hero-controls, .scroll-cue { position: relative; z-index: 1; }
 .hero-slide img, .story-grid img, .gathering-photo img, .program-thumb img, .team-photo img {
   display: block;
   max-width: 100%;
 }
 @media (max-width: 430px) {
+  .hero-image { object-position: var(--pos-m, center center); }
   .hero-slide img { object-position: center center; }
   .hero-slide-copy { padding-inline: 0; }
   .hero-slide-copy p { max-width: 34ch; }
