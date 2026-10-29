@@ -206,27 +206,30 @@ body { font-family: var(--sans); letter-spacing: -0.008em; }
   .section-heading { font-size: clamp(38px, 12vw, 54px); }
 }
 
-/* Homepage photo pair: both images use one predictable frame instead of layered size overrides. */
+/* Artistic photo composition: preserve the tall image, offset inset, and caption relationship. */
 .intro-visual {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: stretch;
-  gap: clamp(16px, 2.5vw, 28px);
-  min-height: 0;
-  max-width: none;
-  margin-top: 32px;
-}
-.intro-visual .photo-frame-tall,
-.intro-visual .photo-inset {
   position: relative;
-  inset: auto;
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: 4 / 5;
+  width: min(100%, 560px);
+  min-height: 610px;
+  margin-top: 36px;
+}
+.intro-visual .photo-frame-tall {
+  position: relative;
+  z-index: 1;
+  width: 78%;
+  height: 540px;
   overflow: hidden;
-  border: 0;
-  box-shadow: var(--shadow-soft);
+  border-bottom: 6px solid var(--gold);
+}
+.intro-visual .photo-inset {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 74px;
+  width: 50%;
+  padding: 16px;
+  background: var(--white);
+  box-shadow: 0 18px 40px rgba(60, 39, 27, .18);
 }
 .intro-visual .photo-frame-tall img,
 .intro-visual .photo-inset img,
@@ -238,17 +241,26 @@ body { font-family: var(--sans); letter-spacing: -0.008em; }
   object-fit: cover;
 }
 .intro-visual .photo-caption {
-  grid-column: 1 / -1;
-  max-width: 34ch;
-  margin: 0;
-  align-self: start;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 58%;
+  color: var(--brown-soft);
+  font: italic 400 18px/1.35 var(--serif);
+  text-align: left;
 }
 @media (max-width: 860px) {
-  .intro-visual { max-width: 680px; margin-inline: auto; }
+  .intro-visual { width: min(100%, 560px); margin-inline: auto; }
 }
 @media (max-width: 620px) {
-  .intro-visual { grid-template-columns: 1fr; gap: 18px; width: 100%; }
-  .intro-visual .photo-frame-tall,
-  .intro-visual .photo-inset { aspect-ratio: 4 / 5; }
-  .intro-visual .photo-caption { grid-column: auto; margin-left: auto; }
+  .intro-visual { min-height: 570px; margin-top: 18px; }
+  .intro-visual .photo-frame-tall { width: 82%; height: min(520px, 132vw); }
+  .intro-visual .photo-inset { left: 0; bottom: 70px; width: 54%; padding: 12px; }
+  .intro-visual .photo-caption { right: 0; width: 58%; font-size: 16px; }
+}
+@media (max-width: 380px) {
+  .intro-visual { min-height: 520px; }
+  .intro-visual .photo-frame-tall { height: 430px; }
+  .intro-visual .photo-inset { bottom: 62px; padding: 10px; }
 }
