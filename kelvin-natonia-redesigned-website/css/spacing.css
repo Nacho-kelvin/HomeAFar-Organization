@@ -377,3 +377,17 @@ body { font-family: var(--sans); letter-spacing: -0.008em; }
   .contact-details .hf-form { margin-top: 10px; }
   .contact-note { font-size: 11px; }
 }
+
+/* Cross-device guardrails: prevent legacy component rules from creating overflow or oversized controls. */
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: clip; }
+body { min-width: 0; overflow-x: clip; }
+img, svg, video, canvas { max-width: 100%; }
+button, input, textarea, select { max-width: 100%; font: inherit; }
+.page-width { width: min(var(--page-width), calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
+.site-header, .hero, main, .ft { min-width: 0; }
+@media (max-width: 620px) {
+  .page-width { width: calc(100% - 40px); }
+  .button, button { min-height: 44px; }
+  .hero-actions .button { min-height: 48px; }
+}
