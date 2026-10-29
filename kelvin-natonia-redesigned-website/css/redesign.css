@@ -389,6 +389,26 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
   .site-header { transition: none; }
 }
 
+/* Keep the intentionally layered desktop composition from forcing mobile overflow. */
+@media (max-width: 720px) {
+  .intro-visual { min-height: 0; }
+  .intro-visual img, .gathering-photo img, .program-thumb img { max-width: 100%; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-card { min-width: 0; }
+  .program-band .program-thumb, .program-band.is-flipped .program-thumb { width: 100%; max-width: none; margin-right: 0; }
+  .program-band .program-thumb::before, .program-band.is-flipped .program-thumb::before { inset: 12px -12px -12px 12px; }
+  .story-grid { overflow: hidden; }
+  .story-grid img { max-width: 100%; }
+  .gallery { min-width: 0; }
+}
+
+@media (max-width: 420px) {
+  .intro-copy, .mission-vision article, .story-invitation { padding-left: 20px; padding-right: 20px; }
+  .mission-vision article { min-width: 0; }
+  .program-band { padding: 56px 0; }
+  .program-band.is-flipped .program-thumb::before, .program-band .program-thumb::before { inset: 10px -10px -10px 10px; }
+}
+
 /* ---------- refinements after visual review ---------- */
 .mission-vision article:nth-child(1) span { color: var(--gold-light); }
 .mission-vision article:nth-child(2) span { color: var(--white); }
