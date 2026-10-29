@@ -68,7 +68,7 @@ const slides = [
 // Section slideshows. Each frame cycles through photos that suit its shape; focal points keep faces in view.
 const SHOW = {
   about: [shot('passport', 'center 20%'), shot('facepaint', 'center 62%'), shot('gathered', 'center 76%')],
-  programs: [shot('welcome', 'center 45%'), shot('group', 'center 56%'), shot('couch', 'center 50%')],
+  programs: [shot('group', 'center 56%')],
   team: [shot('couch', 'center 50%'), shot('group', 'center 56%'), shot('welcome', 'center 45%')],
   events: [shot('welcome', 'center 45%'), shot('passport', 'center 20%'), shot('facepaint', 'center 66%')],
   opportunities: [shot('facepaint', 'center 60%'), shot('group', 'center 56%'), shot('circle', 'center 42%')],
