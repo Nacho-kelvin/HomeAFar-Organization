@@ -38,16 +38,22 @@ describe('whole page', () => {
 
   it('section photo slideshows exist, each with labelled dots, and only one slide is exposed at a time', () => {
     const { container } = render(<App />);
-    const shows = [...container.querySelectorAll('.xf')].filter((show) => !show.closest('.program-community-photo'));
-    expect(shows.length).toBeGreaterThanOrEqual(6);
+    const staticShows = [
+      container.querySelector('.program-community-photo .xf'),
+      container.querySelector('.opportunities-photo .xf'),
+    ];
+    const shows = [...container.querySelectorAll('.xf')].filter((show) => !staticShows.includes(show));
+    expect(shows.length).toBeGreaterThanOrEqual(5);
     shows.forEach((show) => {
       expect(show.getAttribute('aria-label')).toBeTruthy();
       expect(show.querySelectorAll('.xf-slide:not([aria-hidden])')).toHaveLength(1);
       expect(show.querySelectorAll('.xf-dot').length).toBeGreaterThan(1);
     });
-    const communityPhoto = container.querySelector('.program-community-photo .xf');
-    expect(communityPhoto.querySelectorAll('.xf-slide')).toHaveLength(1);
-    expect(communityPhoto.querySelectorAll('.xf-dot')).toHaveLength(0);
+    staticShows.forEach((show) => {
+      expect(show).toBeTruthy();
+      expect(show.querySelectorAll('.xf-slide')).toHaveLength(1);
+      expect(show.querySelectorAll('.xf-dot')).toHaveLength(0);
+    });
     const first = container.querySelector('.xf');
     const dots = first.querySelectorAll('.xf-dot');
     fireEvent.click(dots[1]);
