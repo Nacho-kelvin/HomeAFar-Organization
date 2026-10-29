@@ -14,10 +14,10 @@
   --space-7: 64px;
   --space-8: 96px;
   --space-9: 128px;
-  --section-y: clamp(80px, 10vw, 152px);     /* vertical padding of every full section */
-  --block-gap: clamp(56px, 7vw, 104px);      /* gap between a section's major blocks */
-  --heading-gap: clamp(40px, 5vw, 72px);     /* gap below a section heading row */
-  --gutter: clamp(20px, 5vw, 96px);          /* side margin of the page column */
+  --section-y: clamp(104px, 13vw, 192px);    /* generous editorial breathing room */
+  --block-gap: clamp(72px, 9vw, 128px);      /* gap between a section's major blocks */
+  --heading-gap: clamp(56px, 6.5vw, 96px);   /* gap below a section heading row */
+  --gutter: clamp(24px, 8vw, 128px);         /* wide side margins around the page column */
 }
 
 .page-width { width: min(var(--page-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
@@ -116,9 +116,11 @@
   .privacy-section { padding-block: var(--space-7); }
 }
 @media (max-width: 620px) {
-  :root { --section-y: 72px; --block-gap: 56px; --heading-gap: 36px; }
+  :root { --section-y: 104px; --block-gap: 80px; --heading-gap: 52px; --gutter: 24px; }
   .intro-copy { padding-left: var(--space-4); }
-  .program-band { padding-block: 56px; }
+  .program-band { padding-block: 80px; }
+  .programs-intro, .programs-outro { padding-block: var(--section-y); }
+  .story-grid { row-gap: 72px; }
   .partner-category { padding: var(--space-5) var(--space-4) var(--space-5); }
   .field-row { gap: var(--space-4); }
 }
