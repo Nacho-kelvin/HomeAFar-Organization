@@ -391,3 +391,53 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .button, button { min-height: 44px; }
   .hero-actions .button { min-height: 48px; }
 }
+
+/* Image-first slideshow: keep photography clean and place the message in a calm editorial panel below it. */
+.hero {
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--brown-deep);
+}
+.hero-image {
+  position: relative;
+  inset: auto;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: clamp(420px, 58vw, 720px);
+  object-fit: cover;
+}
+.hero-shade { display: none; }
+.hero-content.page-width {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(var(--page-width), calc(100% - (var(--gutter) * 2)));
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px clamp(32px, 6vw, 96px);
+  align-items: end;
+  margin-inline: auto;
+  padding-block: clamp(42px, 6vw, 76px);
+  color: var(--brown-deep);
+}
+.hero-slide-copy h1 { color: var(--brown-deep); }
+.hero-slide-copy p { color: var(--brown-soft); }
+.hero-slide-copy .eyebrow { color: var(--gold-deep); }
+.hero-actions { align-self: end; }
+.hero-controls { bottom: 18px; }
+.scroll-cue { display: none; }
+.button-ghost { border-color: rgba(59, 38, 27, .35); color: var(--brown-deep); }
+@media (max-width: 760px) {
+  .hero-image { height: clamp(360px, 105vw, 560px); }
+  .hero-content.page-width {
+    width: calc(100% - 40px);
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 36px 48px;
+  }
+  .hero-slide-copy h1 { max-width: 12ch; }
+  .hero-actions { width: 100%; align-self: auto; }
+  .hero-actions .button { width: 100%; }
+}
