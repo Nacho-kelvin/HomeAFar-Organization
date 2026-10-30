@@ -413,7 +413,19 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   line-height: 1.25;
   letter-spacing: -.02em;
 }
-.story-invitation, .country-series {
+.story-invitation {
+  color: var(--brown);
+  background: #fbf6ed;
+  border: 0;
+  border-left: 8px solid var(--gold);
+  box-shadow: 0 16px 40px rgba(59, 38, 27, .1);
+}
+.story-invitation .editorial-kicker { color: var(--gold-deep); }
+.story-invitation h3 { color: var(--brown-deep); }
+.story-invitation p { color: var(--brown-soft); }
+.story-invitation .underlined-link { color: var(--brown-deep); border-bottom-color: var(--gold); }
+.story-invitation .underlined-link span { color: var(--gold-deep); }
+.country-series {
   border-color: rgba(89, 59, 43, .16);
   background: rgba(255, 255, 255, .38);
 }
