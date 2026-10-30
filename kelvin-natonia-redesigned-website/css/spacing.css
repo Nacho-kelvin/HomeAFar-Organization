@@ -46,7 +46,7 @@
 .programs-intro { padding-block: var(--section-y) var(--block-gap); }
 .program-band { padding-block: clamp(64px, 8vw, 120px); }
 .program-band-grid { gap: clamp(48px, 7vw, 112px); }
-.program-status { margin-bottom: var(--space-4); }
+
 .program-text p { margin-top: var(--space-4); }
 .program-text small { margin-top: var(--space-4); }
 .programs-outro { padding-block: var(--section-y); }

@@ -439,7 +439,6 @@ function Programs() {
           <div className="page-width program-band-grid">
             <div className="program-thumb reveal"><Photo file={program.thumb[0]} alt={program.thumb[1]} sizes="(max-width: 860px) 92vw, 46vw" /></div>
             <div className="program-text reveal">
-              <span className="program-status">{program.status}</span>
               <h3><span className="program-icon"><Icon name={program.icon} size={26} /></span>{program.title}</h3>
               <p>{program.text}</p>
               <small>{program.note}</small>
