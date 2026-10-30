@@ -396,6 +396,19 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .contact-inner, .contact-copy, .contact-details { min-width: 0; }
 }
 
+/* Contrast pass: give the image-first hero a warmer sand panel that separates from the photo and reads clearly. */
+.hero { background: var(--cream-deep); }
+.hero-content.page-width {
+  background: linear-gradient(135deg, var(--cream-deep) 0%, var(--sand) 100%);
+  border-top: 1px solid rgba(122, 90, 24, .18);
+  padding-block: clamp(34px, 5vw, 64px);
+}
+.hero-slide-copy h1 { color: var(--brown-deep); }
+.hero-slide-copy p { color: var(--brown); }
+@media (max-width: 600px) {
+  .hero-content.page-width { padding-block: 32px 40px; }
+}
+
 /* Warm editorial story treatment: the page background now transitions softly into the quote moments. */
 .stories-section {
   background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
