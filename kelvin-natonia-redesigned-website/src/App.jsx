@@ -40,20 +40,20 @@ const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 
 // Homepage slideshow: three documentary photographs, each with its own message and focal point.
 const HERO = {
-  growth: 'vrFYk.jpg',
-  community: PHOTO.group,
-  roots: '06-savanna-silhouette-roots.jpg',
+  welcome: PHOTO.welcome,
+  community: PHOTO.couch,
+  together: PHOTO.group,
 };
 const slides = [
   {
-    file: HERO.growth,
+    file: HERO.welcome,
     eyebrow: 'Rooted in home',
     title: 'A home you',
     accent: 'can carry.',
     copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
-    alt: 'Young plants growing among the roots of a tree in warm sunlight.',
-    pos: 'center',
-    posM: 'center 58%',
+    alt: ALT.welcome,
+    pos: 'center 48%',
+    posM: 'center 42%',
   },
   {
     file: HERO.community,
@@ -66,14 +66,14 @@ const slides = [
     posM: 'center 58%',
   },
   {
-    file: HERO.roots,
+    file: HERO.together,
     eyebrow: 'Wherever the road leads',
     title: 'Africa is',
     accent: 'always with you.',
     copy: 'Distance changes the view, never the roots. Carry home in your story, your food, your music and your people.',
-    alt: 'A person looking across an African landscape beneath a connected map of Africa.',
-    pos: 'center center',
-    posM: 'center center',
+    alt: ALT.group,
+    pos: 'center 56%',
+    posM: 'center 58%',
   },
 ];
 
