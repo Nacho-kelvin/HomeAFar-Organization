@@ -266,15 +266,22 @@ body { background: var(--cream); color: var(--brown); font-family: var(--sans); 
 .team-section { background: var(--cream); }
 .team-section .eyebrow { color: var(--terracotta-deep); }
 .team-community-photo { margin-top: 64px; }
-.team-card { background: var(--white); border: 0; border-top: 4px solid var(--gold); border-radius: 0; box-shadow: none; padding: 28px; }
-.team-card:nth-child(3n+2) { border-top-color: var(--terracotta); }
+  .team-card { position: relative; isolation: isolate; overflow: hidden; background: var(--white); border: 0; border-top: 4px solid var(--gold); border-radius: 0; box-shadow: none; padding: 28px; }
+  .team-card::after { content: ''; position: absolute; right: -34px; bottom: -42px; z-index: -1; width: 150px; height: 150px; border: 1px solid rgba(36, 21, 16, .12); border-radius: 50%; box-shadow: 0 0 0 18px rgba(36, 21, 16, .035), 0 0 0 36px rgba(36, 21, 16, .025); }
+  .team-card:nth-child(3n+2) { border-top-color: var(--terracotta); }
 .team-card:nth-child(3n+3) { border-top-color: var(--forest); }
   .team-card:hover { transform: none; box-shadow: 0 16px 34px rgba(60, 39, 27, .1); }
   .team-photo { display: grid; place-items: center; overflow: hidden; border: 4px solid var(--gold); box-shadow: inset 0 0 0 5px rgba(255, 255, 255, .45), 0 10px 22px rgba(60, 39, 27, .12); }
+  .team-mark { display: flex; flex-direction: column; justify-content: space-between; flex: 0 0 auto; width: 64px; height: 64px; padding: 9px 10px; color: var(--cream); background: var(--brown-deep); border-radius: 50%; box-shadow: 0 0 0 5px var(--white), 0 0 0 6px var(--hairline-gold); }
+  .team-mark span { font: 600 10px/1 var(--sans); letter-spacing: .12em; opacity: .68; }
+  .team-mark b { align-self: flex-end; font: 600 22px/.9 var(--sans); letter-spacing: -.08em; }
+  .team-card:nth-child(3n+2) .team-mark { background: var(--terracotta); }
+  .team-card:nth-child(3n+3) .team-mark { background: var(--forest); }
   .team-card:nth-child(3n+2) .team-photo { border-color: var(--terracotta); }
   .team-card:nth-child(3n+3) .team-photo { border-color: var(--forest); }
+  .team-card-copy { min-width: 0; }
   .team-card h3 { color: var(--brown); font: 600 22px/1.2 var(--serif); }
-.team-card .team-role { color: var(--forest); font-size: 14.5px; }
+  .team-card .team-role { color: var(--forest); font-size: 14.5px; }
 .team-card .team-bio { color: var(--brown-soft); font-size: 14.5px; }
 
 /* ---------- events: forest-green chapter with a date badge ---------- */
