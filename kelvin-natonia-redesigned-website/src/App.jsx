@@ -38,11 +38,13 @@ const ALT = {
 };
 const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 
-// Homepage slideshow: three documentary photographs, each with its own message and focal point.
+// Homepage slideshow: five documentary photographs, each with its own message and focal point.
 const HERO = {
   community: PHOTO.circle,
   together: PHOTO.group,
   welcome: PHOTO.couch,
+  passport: PHOTO.passport,
+  facepaint: PHOTO.facepaint,
 };
 const slides = [
   {
@@ -51,7 +53,7 @@ const slides = [
     title: 'A home you',
     accent: 'can carry.',
     copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
-    alt: ALT.circle,
+    alt: ALT.couch,
     pos: 'center 52%',
     posM: 'center 48%',
   },
@@ -74,6 +76,26 @@ const slides = [
     alt: ALT.group,
     pos: 'center 56%',
     posM: 'center 58%',
+  },
+  {
+    file: HERO.passport,
+    eyebrow: 'Carry your story',
+    title: 'Your roots',
+    accent: 'travel with you.',
+    copy: 'Stay close to the people, places and memories that make every new city feel more like home.',
+    alt: ALT.passport,
+    pos: 'center 24%',
+    posM: 'center 30%',
+  },
+  {
+    file: HERO.facepaint,
+    eyebrow: 'Make room for joy',
+    title: 'Culture is',
+    accent: 'something we share.',
+    copy: 'Find connection through the traditions, conversations and moments that bring us together.',
+    alt: ALT.facepaint,
+    pos: 'center 42%',
+    posM: 'center 38%',
   },
 ];
 
