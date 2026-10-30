@@ -347,37 +347,7 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   object-fit: cover;
 }
 .hero-shade { display: none; }
-.hero-content.page-width {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  width: min(var(--page-width), calc(100% - (var(--gutter) * 2)));
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 32px clamp(32px, 6vw, 96px);
-  align-items: end;
-  margin-inline: auto;
-  padding-block: clamp(42px, 6vw, 76px);
-  color: var(--brown-deep);
-}
-.hero-slide-copy h1 { color: var(--brown-deep); }
-.hero-slide-copy p { color: var(--brown-soft); }
-.hero-slide-copy .eyebrow { color: var(--gold-deep); }
-.hero-actions { align-self: end; }
 .hero-controls { bottom: 18px; }
-.scroll-cue { display: none; }
-.button-ghost { border-color: rgba(59, 38, 27, .35); color: var(--brown-deep); }
-@media (max-width: 760px) {
-  .hero-image { height: clamp(360px, 105vw, 560px); }
-  .hero-content.page-width {
-    width: calc(100% - 40px);
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-block: 36px 48px;
-  }
-  .hero-slide-copy h1 { max-width: 12ch; }
-  .hero-actions { width: 100%; align-self: auto; }
-  .hero-actions .button { width: 100%; }
-}
 
 /* Final iPhone/mobile pass: one gutter, no fixed-width children, and controls that stay inside the viewport. */
 @media (max-width: 600px) {
@@ -388,25 +358,9 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .brand-name, .wordmark { font-size: clamp(24px, 8vw, 32px); }
   .brand-tagline { max-width: 100%; overflow: hidden; text-overflow: clip; font-size: 8px; letter-spacing: .1em; }
   .menu-toggle { flex: 0 0 48px; width: 48px; height: 48px; }
-  .hero-content.page-width { width: calc(100% - 32px); padding-block: 32px 40px; }
-  .hero-slide-copy h1 { font-size: clamp(38px, 11vw, 56px); }
-  .hero-slide-copy p { max-width: 100%; }
   .hero-controls { right: 16px; bottom: 14px; left: 16px; }
   .ft-inner { width: calc(100% - 32px); }
   .contact-inner, .contact-copy, .contact-details { min-width: 0; }
-}
-
-/* Contrast pass: give the image-first hero a warmer sand panel that separates from the photo and reads clearly. */
-.hero { background: var(--cream-deep); }
-.hero-content.page-width {
-  background: linear-gradient(135deg, var(--cream-deep) 0%, var(--sand) 100%);
-  border-top: 1px solid rgba(122, 90, 24, .18);
-  padding-block: clamp(34px, 5vw, 64px);
-}
-.hero-slide-copy h1 { color: var(--brown-deep); }
-.hero-slide-copy p { color: var(--brown); }
-@media (max-width: 600px) {
-  .hero-content.page-width { padding-block: 32px 40px; }
 }
 
 /* Warm editorial story treatment: the page background now transitions softly into the quote moments. */
