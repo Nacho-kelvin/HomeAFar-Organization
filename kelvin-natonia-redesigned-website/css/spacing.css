@@ -326,7 +326,6 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
 @media (max-width: 620px) {
   .page-width { width: calc(100% - 40px); }
   .button, button { min-height: 44px; }
-  .hero-actions .button { min-height: 48px; }
 }
 
 /* Editorial split hero: clear message panel on desktop, image-first order on mobile. */
