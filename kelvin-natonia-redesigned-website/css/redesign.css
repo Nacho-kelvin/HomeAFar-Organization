@@ -11,26 +11,26 @@
    ========================================================================== */
 
 :root {
-  --cream: #F8F1E7;
-  --cream-deep: #EFE4D2;
-  --sand: #E6D8C2;
+  --cream: #FFF8EC;
+  --cream-deep: #F6E6CC;
+  --sand: #EBCB9D;
   --brown: #593B2B;
   --brown-deep: #241510;
-  --brown-soft: #5A4033;
+  --brown-soft: #654538;
   --hero-ink: #241510;
-  --hero-gold: #E8B94D;
-  --gold: #D5A63C;
-  --gold-light: #E8C873;
-  --gold-deep: #7A5A18;
-  --forest: #244D3A;
-  --forest-deep: #183628;
-  --terracotta: #B85F43;
-  --terracotta-deep: #964530;
-  --sky: #DCEAF0;
+  --hero-gold: #F4C341;
+  --gold: #E5A91F;
+  --gold-light: #FFD86A;
+  --gold-deep: #79520A;
+  --forest: #17624A;
+  --forest-deep: #0E3C2D;
+  --terracotta: #C65B3D;
+  --terracotta-deep: #9E3F29;
+  --sky: #D4EEF5;
   --white: #FFFFFF;
   --ink: #3C271B;
-  --clay: var(--terracotta); --clay-deep: var(--terracotta-deep); --clay-tint: #F5E3DB;
-  --leaf: var(--forest); --leaf-deep: var(--forest-deep); --leaf-tint: #E3EBE4;
+  --clay: var(--terracotta); --clay-deep: var(--terracotta-deep); --clay-tint: #F9DED3;
+  --leaf: var(--forest); --leaf-deep: var(--forest-deep); --leaf-tint: #D9F0E5;
   --lake: var(--forest); --lake-deep: var(--forest-deep); --lake-tint: var(--sky);
   --serif: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sans: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
