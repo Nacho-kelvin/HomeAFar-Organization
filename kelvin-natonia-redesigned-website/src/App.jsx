@@ -222,10 +222,10 @@ const moments = [
 ].map((item) => ({ ...item, file: PHOTO[item.key] }));
 
 const teamMembers = [
-  { name: 'Murugi Njiru', role: 'Founder & Managing Director', bio: 'Originated the HomeAFar vision and leads its direction, events, storytelling concepts and community growth.', photo: null, gradientStart: '#D4A574', gradientEnd: '#8B6F47' },
-  { name: 'Charles', role: 'Co-founder', bio: 'Builds meaningful partnerships and community connections.', photo: null, gradientStart: '#A0826D', gradientEnd: '#6B5D52' },
-  { name: 'Marcell', role: 'Technical Co-Founder & Director of Strategy, Creative & Technology', bio: 'Contributes to strategy, digital and technology direction, and partnership development.', photo: null, gradientStart: '#8B7355', gradientEnd: '#5D4E47' },
-  { name: 'Eunice Wangui', role: 'Events & Experiences Lead', bio: 'Supports the planning and coordination of HomeAFar events and community experiences.', photo: null, gradientStart: '#C9A961', gradientEnd: '#8B6F47' },
+  { initials: 'MN', name: 'Murugi Njiru', role: 'Founder & Managing Director', bio: 'Originated the HomeAFar vision and leads its direction, events, storytelling concepts and community growth.', photo: null, gradientStart: '#D4A574', gradientEnd: '#8B6F47' },
+  { initials: 'C', name: 'Charles', role: 'Co-founder', bio: 'Builds meaningful partnerships and community connections.', photo: null, gradientStart: '#A0826D', gradientEnd: '#6B5D52' },
+  { initials: 'M', name: 'Marcell', role: 'Technical Co-Founder & Director of Strategy, Creative & Technology', bio: 'Contributes to strategy, digital and technology direction, and partnership development.', photo: null, gradientStart: '#8B7355', gradientEnd: '#5D4E47' },
+  { initials: 'EW', name: 'Eunice Wangui', role: 'Events & Experiences Lead', bio: 'Supports the planning and coordination of HomeAFar events and community experiences.', photo: null, gradientStart: '#C9A961', gradientEnd: '#8B6F47' },
 ];
 
 const Avatar = ({ member }) => {
@@ -678,8 +678,8 @@ function Team() {
         <div className="team-grid">
           {teamMembers.map((member, i) => (
             <article className="team-card reveal" key={member.name} style={{ '--i': i }}>
-              <Avatar member={member} />
-              <div><h3>{member.name}</h3><p className="team-role">{member.role}</p>{member.bio && <p className="team-bio">{member.bio}</p>}</div>
+              {member.photo ? <Avatar member={member} /> : <div className="team-mark" aria-hidden="true"><span>{String(i + 1).padStart(2, '0')}</span><b>{member.initials}</b></div>}
+              <div className="team-card-copy"><h3>{member.name}</h3><p className="team-role">{member.role}</p>{member.bio && <p className="team-bio">{member.bio}</p>}</div>
             </article>
           ))}
         </div>
