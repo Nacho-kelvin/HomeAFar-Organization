@@ -439,4 +439,6 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   @media (max-width: 600px) {
   .stories-section .section-heading { font-size: clamp(44px, 13vw, 56px); line-height: .98; }
   .stories-section .story-lede { max-width: 34ch; font-size: clamp(18px, 5.2vw, 21px); line-height: 1.45; }
+  .partners-section .section-heading { font-size: clamp(42px, 12vw, 54px); line-height: 1; }
+  .partners-section .story-lede { max-width: 34ch; font-size: clamp(18px, 5vw, 21px); line-height: 1.45; }
   }
