@@ -7,7 +7,7 @@
      Warm Cream #F8F1E7 · Rich Brown #593B2B · Gold #D5A63C
      Forest Green #244D3A · Terracotta #B85F43 · Soft Blue #DCEAF0 · White #FFFFFF
    Type
-     Fraunces (display serif, headlines & numerals) + Figtree (text & UI)
+     Quicksand (all interface, body copy and headings)
    ========================================================================== */
 
 :root {
@@ -32,8 +32,8 @@
   --clay: var(--terracotta); --clay-deep: var(--terracotta-deep); --clay-tint: #F5E3DB;
   --leaf: var(--forest); --leaf-deep: var(--forest-deep); --leaf-tint: #E3EBE4;
   --lake: var(--forest); --lake-deep: var(--forest-deep); --lake-tint: var(--sky);
-  --serif: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
-  --sans: "Figtree Variable", "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --serif: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
   --page-width: 1120px;
   --header-h: 82px;
 }
