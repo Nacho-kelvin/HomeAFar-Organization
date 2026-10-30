@@ -384,7 +384,6 @@ function Hero() {
           </div>
         </div>
       </div>
-      <a className="scroll-cue" href="#about" aria-label="Scroll to our story"><span /></a>
       <div className="hero-controls" role="group" aria-label="Photo slideshow controls" onKeyDown={onControlsKeyDown}>
         <div className="slide-indicators" role="group" aria-label="Choose a photo">
           {slides.map((slide, index) => <button className={`slide-indicator${active === index ? ' is-active' : ''}`} type="button" aria-label={`Show photo ${index + 1}: ${slide.eyebrow}`} aria-current={active === index ? 'true' : undefined} key={slide.file} onClick={() => setActive(index)} />)}
