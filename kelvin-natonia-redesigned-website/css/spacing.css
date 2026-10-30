@@ -126,7 +126,7 @@
 }
 
 /* Typography refinement — keeps the existing Fraunces/Figtree direction while improving rhythm and hierarchy. */
-html { font-synthesis: none; text-rendering: optimizeLegibility; }
+  html { font-synthesis: weight style; text-rendering: optimizeLegibility; }
 body { font-family: var(--sans); letter-spacing: -0.008em; }
 .brand-name, .wordmark, .section-heading, .hero h1, .join-content h2, .shared-heading, .shared-card h4, .hf-form h2, .hf-form h3 {
   font-family: var(--serif);
