@@ -125,69 +125,6 @@
   .field-row { gap: var(--space-4); }
 }
 
-/* Final responsive contract: this is the last stylesheet loaded, so mobile and desktop share one clear layout model. */
-.hero { position: relative; isolation: isolate; overflow: hidden; }
-.hero-image { position: absolute; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; }
-.hero-shade { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.hero-content { position: relative; z-index: 2; min-width: 0; box-sizing: border-box; }
-.hero-slide-copy { min-width: 0; max-width: 650px; }
-.hero-slide-copy h1, .hero-slide-copy p { overflow-wrap: normal; word-break: normal; }
-.hero-controls, .scroll-cue { z-index: 3; }
-
-@media (min-width: 981px) {
-  .hero-content { width: min(var(--page-width), calc(100% - 96px)); margin-inline: auto; padding-block: 150px; }
-  .hero-slide-copy h1 { max-width: 12ch; }
-  .hero-slide-copy p { max-width: 520px; }
-  .hero-actions { display: flex; flex-wrap: wrap; }
-}
-
-@media (max-width: 980px) {
-  .site-header { position: relative; margin: 0; background: var(--cream); }
-  .hero-content {
-    display: flex;
-    width: calc(100% - 32px);
-    max-width: none;
-    margin-inline: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-block: 84px 112px;
-  }
-  .hero-slide-copy, .hero-slide-copy h1, .hero-slide-copy p { width: 100%; max-width: none; }
-  .hero-slide-copy h1 { font-size: clamp(42px, 10vw, 76px); line-height: .98; text-wrap: balance; }
-  .hero-slide-copy p { max-width: 36ch; font-size: clamp(16px, 2.2vw, 19px); line-height: 1.65; }
-  .hero-actions { display: grid; width: min(100%, 440px); gap: 12px; margin-top: 32px; }
-  .hero-actions .button { width: 100%; min-height: 48px; }
-  .hero-image { object-position: var(--pos-m, center center); }
-}
-
-@media (max-width: 620px) {
-  .nav-shell { width: calc(100% - 32px); min-height: 88px; height: 88px; padding-block: 10px; }
-  .brand { min-width: 0; gap: 10px; }
-  .brand-mark { width: 46px; height: 46px; flex-basis: 46px; }
-  .brand-copy { min-width: 0; }
-  .brand-name { font-size: clamp(25px, 8vw, 34px); letter-spacing: -.045em; line-height: .95; }
-  .brand-name-a { font-style: italic; }
-  .brand-tagline { display: block; margin-top: 6px; font-size: 9px; letter-spacing: .12em; white-space: nowrap; }
-  .menu-toggle { width: 50px; height: 50px; flex-basis: 50px; }
-  .hero { min-height: max(680px, 100svh); }
-  .hero-content { width: calc(100% - 32px); padding-block: 72px 108px; }
-  .hero-slide-copy h1 { font-size: clamp(38px, 11.5vw, 58px); text-wrap: balance; }
-  .hero-slide-copy p { max-width: 100%; }
-  .photo-frame-tall { width: 100%; height: min(560px, 125vw); }
-  .intro-visual { min-height: 0; }
-  .photo-inset { width: min(78%, 280px); }
-  .photo-caption { max-width: 80%; margin-left: auto; }
-}
-
-@media (max-width: 380px) {
-  .brand-name { font-size: 24px; }
-  .brand-tagline { font-size: 8px; letter-spacing: .08em; }
-  .menu-toggle { width: 50px; height: 50px; flex-basis: 50px; }
-  .hero-content { width: calc(100% - 24px); }
-  .hero-slide-copy h1 { font-size: clamp(34px, 11vw, 46px); }
-  .hero-actions { width: 100%; }
-}
-
 /* Typography refinement — keeps the existing Fraunces/Figtree direction while improving rhythm and hierarchy. */
 html { font-synthesis: none; text-rendering: optimizeLegibility; }
 body { font-family: var(--sans); letter-spacing: -0.008em; }
@@ -457,4 +394,33 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .hero-controls { right: 16px; bottom: 14px; left: 16px; }
   .ft-inner { width: calc(100% - 32px); }
   .contact-inner, .contact-copy, .contact-details { min-width: 0; }
+}
+
+/* Warm editorial story treatment: the page background now transitions softly into the quote moments. */
+.stories-section {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+}
+.story-lede {
+  max-width: 30ch;
+  padding-left: clamp(18px, 2vw, 28px);
+  border-left: 2px solid var(--gold);
+  color: var(--brown-deep);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-style: italic;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+.story-invitation, .country-series {
+  border-color: rgba(89, 59, 43, .16);
+  background: rgba(255, 255, 255, .38);
+}
+.story-invitation h3, .country-series h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.editorial-copy p { max-width: 42ch; }
+@media (max-width: 600px) {
+  .story-lede { font-size: 23px; }
 }
