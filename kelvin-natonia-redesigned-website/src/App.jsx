@@ -410,7 +410,6 @@ function Hero() {
         <div className="slide-indicators" role="group" aria-label="Choose a photo">
           {slides.map((slide, index) => <button className={`slide-indicator${active === index ? ' is-active' : ''}`} type="button" aria-label={`Show photo ${index + 1}: ${slide.eyebrow}`} aria-current={active === index ? 'true' : undefined} key={slide.file} onClick={() => setActive(index)} />)}
         </div>
-        <span className="slide-count" aria-live={paused ? 'polite' : 'off'}><span>{String(active + 1).padStart(2, '0')}</span><span className="slide-divider">/</span><span>{String(slides.length).padStart(2, '0')}</span></span>
       </div>
     </section>
   );
