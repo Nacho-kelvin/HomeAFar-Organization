@@ -458,3 +458,32 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .ft-inner { width: calc(100% - 32px); }
   .contact-inner, .contact-copy, .contact-details { min-width: 0; }
 }
+
+/* Warm editorial story treatment: the page background now transitions softly into the quote moments. */
+.stories-section {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+}
+.story-lede {
+  max-width: 30ch;
+  padding-left: clamp(18px, 2vw, 28px);
+  border-left: 2px solid var(--gold);
+  color: var(--brown-deep);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-style: italic;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+.story-invitation, .country-series {
+  border-color: rgba(89, 59, 43, .16);
+  background: rgba(255, 255, 255, .38);
+}
+.story-invitation h3, .country-series h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.editorial-copy p { max-width: 42ch; }
+@media (max-width: 600px) {
+  .story-lede { font-size: 23px; }
+}
