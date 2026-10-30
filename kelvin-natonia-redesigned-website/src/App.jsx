@@ -678,7 +678,7 @@ function Team() {
         <div className="team-grid">
           {teamMembers.map((member, i) => (
             <article className="team-card reveal" key={member.name} style={{ '--i': i }}>
-              {member.photo ? <Avatar member={member} /> : <div className="team-mark" aria-hidden="true"><span>{String(i + 1).padStart(2, '0')}</span><b>{member.initials}</b></div>}
+              {member.photo && <Avatar member={member} />}
               <div className="team-card-copy"><h3>{member.name}</h3><p className="team-role">{member.role}</p>{member.bio && <p className="team-bio">{member.bio}</p>}</div>
             </article>
           ))}
