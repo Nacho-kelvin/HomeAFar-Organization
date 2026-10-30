@@ -441,3 +441,20 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .hero-actions { width: 100%; align-self: auto; }
   .hero-actions .button { width: 100%; }
 }
+
+/* Final iPhone/mobile pass: one gutter, no fixed-width children, and controls that stay inside the viewport. */
+@media (max-width: 600px) {
+  .site-header { position: relative; width: 100%; }
+  .nav-shell { width: calc(100% - 32px); min-height: 88px; height: auto; padding-block: 12px; }
+  .brand { min-width: 0; max-width: calc(100% - 64px); }
+  .brand-copy, .brand-name, .wordmark { min-width: 0; max-width: 100%; }
+  .brand-name, .wordmark { font-size: clamp(24px, 8vw, 32px); }
+  .brand-tagline { max-width: 100%; overflow: hidden; text-overflow: clip; font-size: 8px; letter-spacing: .1em; }
+  .menu-toggle { flex: 0 0 48px; width: 48px; height: 48px; }
+  .hero-content.page-width { width: calc(100% - 32px); padding-block: 32px 40px; }
+  .hero-slide-copy h1 { font-size: clamp(38px, 11vw, 56px); }
+  .hero-slide-copy p { max-width: 100%; }
+  .hero-controls { right: 16px; bottom: 14px; left: 16px; }
+  .ft-inner { width: calc(100% - 32px); }
+  .contact-inner, .contact-copy, .contact-details { min-width: 0; }
+}
