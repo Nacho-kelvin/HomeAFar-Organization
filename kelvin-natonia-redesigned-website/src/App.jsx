@@ -223,17 +223,17 @@ const moments = [
 
 const teamMembers = [
   { name: 'Murugi Njiru', role: 'Founder & Managing Director', bio: 'Originated the HomeAFar vision and leads its direction, events, storytelling concepts and community growth.', photo: null, gradientStart: '#D4A574', gradientEnd: '#8B6F47' },
-  { name: 'Charles', role: 'Co-founder', bio: 'Builds meaningful partnerships and community connections.', photo: null, icon: 'handshake', gradientStart: '#A0826D', gradientEnd: '#6B5D52' },
-  { name: 'Marcell', role: 'Technical Co-Founder & Director of Strategy, Creative & Technology', bio: 'Contributes to strategy, digital and technology direction, and partnership development.', photo: null, icon: 'gear', gradientStart: '#8B7355', gradientEnd: '#5D4E47' },
-  { name: 'Eunice Wangui', role: 'Events & Experiences Lead', bio: 'Supports the planning and coordination of HomeAFar events and community experiences.', photo: null, icon: 'star', gradientStart: '#C9A961', gradientEnd: '#8B6F47' },
+  { name: 'Charles', role: 'Co-founder', bio: 'Builds meaningful partnerships and community connections.', photo: null, gradientStart: '#A0826D', gradientEnd: '#6B5D52' },
+  { name: 'Marcell', role: 'Technical Co-Founder & Director of Strategy, Creative & Technology', bio: 'Contributes to strategy, digital and technology direction, and partnership development.', photo: null, gradientStart: '#8B7355', gradientEnd: '#5D4E47' },
+  { name: 'Eunice Wangui', role: 'Events & Experiences Lead', bio: 'Supports the planning and coordination of HomeAFar events and community experiences.', photo: null, gradientStart: '#C9A961', gradientEnd: '#8B6F47' },
 ];
 
 const Avatar = ({ member }) => {
-  return (
-    <div className={`team-photo${member.open ? ' is-open' : ''}`} style={{ background: `linear-gradient(135deg, ${member.gradientStart} 0%, ${member.gradientEnd} 100%)` }}>
-      {member.photo && <img src={`/images/team/${member.photo}`} alt={`Portrait of ${member.name}`} width="96" height="96" loading="lazy" decoding="async" />}
-    </div>
-  );
+  return member.photo ? (
+  <div className={`team-photo${member.open ? ' is-open' : ''}`}>
+    <img src={`/images/team/${member.photo}`} alt={`Portrait of ${member.name}`} width="96" height="96" loading="lazy" decoding="async" />
+  </div>
+  ) : null;
 };
 
 const useReveals = (route) => {
