@@ -90,7 +90,7 @@ img { -webkit-user-drag: none; }
 .date-badge { box-shadow: var(--shadow-soft); }
 .chip { transition: background .3s ease, color .3s ease, border-color .3s ease, transform .3s var(--ease); }
 .chip:hover { color: var(--white); background: var(--forest); border-color: var(--forest); transform: translateY(-2px); }
-.program-status { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+
 .mission-vision article { position: relative; }
 .mission-vision article::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(232, 200, 115, .3); pointer-events: none; }
 .story-invitation, .partner-cta, .country-series { box-shadow: var(--shadow-soft); }
