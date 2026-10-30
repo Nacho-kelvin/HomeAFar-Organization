@@ -40,20 +40,20 @@ const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 
 // Homepage slideshow: three documentary photographs, each with its own message and focal point.
 const HERO = {
-  growth: 'vrFYk.jpg',
-  community: PHOTO.group,
-  roots: '06-savanna-silhouette-roots.jpg',
+  welcome: PHOTO.welcome,
+  community: PHOTO.couch,
+  together: PHOTO.group,
 };
 const slides = [
   {
-    file: HERO.growth,
+    file: HERO.welcome,
     eyebrow: 'Rooted in home',
     title: 'A home you',
     accent: 'can carry.',
     copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
-    alt: 'Young plants growing among the roots of a tree in warm sunlight.',
-    pos: 'center',
-    posM: 'center 58%',
+    alt: ALT.welcome,
+    pos: 'center 48%',
+    posM: 'center 42%',
   },
   {
     file: HERO.community,
@@ -66,14 +66,14 @@ const slides = [
     posM: 'center 58%',
   },
   {
-    file: HERO.roots,
+    file: HERO.together,
     eyebrow: 'Wherever the road leads',
     title: 'Africa is',
     accent: 'always with you.',
     copy: 'Distance changes the view, never the roots. Carry home in your story, your food, your music and your people.',
-    alt: 'A person looking across an African landscape beneath a connected map of Africa.',
-    pos: 'center center',
-    posM: 'center center',
+    alt: ALT.group,
+    pos: 'center 56%',
+    posM: 'center 58%',
   },
 ];
 
@@ -373,6 +373,17 @@ function Hero() {
   return (
     <section className="hero" id="home" aria-label="HomeAFar photo slideshow" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onMouseEnter={() => setHeld(true)} onMouseLeave={() => setHeld(false)} onFocus={() => setHeld(true)} onBlur={() => setHeld(false)}>
       <Photo className="hero-image" key={current.file} file={current.file} alt={current.alt} eager fetchPriority={shown === 0 ? 'high' : 'auto'} style={{ '--pos': current.pos, '--pos-m': current.posM }} />
+      <div className="hero-content">
+        <div className="hero-copy-wrap">
+          <Eyebrow light>{current.eyebrow}</Eyebrow>
+          <h1 id="hero-title">{current.title}{current.accent && <><br /><em>{current.accent}</em></>}</h1>
+          <p className="hero-intro">{current.copy}</p>
+          <div className="hero-actions">
+            <a className="button button-gold" href="#about">Explore community <Icon name="arrow" size={18} /></a>
+            <a className="button button-ghost" href="#share-story">Share your story <Icon name="arrow" size={18} /></a>
+          </div>
+        </div>
+      </div>
       <a className="scroll-cue" href="#about" aria-label="Scroll to our story"><span /></a>
       <div className="hero-controls" role="group" aria-label="Photo slideshow controls" onKeyDown={onControlsKeyDown}>
         <div className="slide-indicators" role="group" aria-label="Choose a photo">
