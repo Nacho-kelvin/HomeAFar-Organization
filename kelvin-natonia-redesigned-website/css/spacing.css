@@ -436,6 +436,7 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   letter-spacing: -.025em;
 }
 .editorial-copy p { max-width: 42ch; }
-@media (max-width: 600px) {
-  .story-lede { font-size: 23px; }
-}
+  @media (max-width: 600px) {
+  .stories-section .section-heading { font-size: clamp(44px, 13vw, 56px); line-height: .98; }
+  .stories-section .story-lede { max-width: 34ch; font-size: clamp(18px, 5.2vw, 21px); line-height: 1.45; }
+  }
