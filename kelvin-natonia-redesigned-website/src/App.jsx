@@ -40,9 +40,9 @@ const shot = (key, pos) => ({ file: PHOTO[key], alt: ALT[key], pos });
 
 // Homepage slideshow: three documentary photographs, each with its own message and focal point.
 const HERO = {
-  welcome: PHOTO.welcome,
-  community: PHOTO.couch,
+  community: PHOTO.circle,
   together: PHOTO.group,
+  welcome: PHOTO.couch,
 };
 const slides = [
   {
@@ -51,9 +51,9 @@ const slides = [
     title: 'A home you',
     accent: 'can carry.',
     copy: 'HomeAFar helps young Africans abroad stay connected to culture, community and opportunity.',
-    alt: ALT.welcome,
-    pos: 'center 48%',
-    posM: 'center 42%',
+    alt: ALT.circle,
+    pos: 'center 52%',
+    posM: 'center 48%',
   },
   {
     file: HERO.community,
