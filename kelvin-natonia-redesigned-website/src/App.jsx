@@ -373,6 +373,17 @@ function Hero() {
   return (
     <section className="hero" id="home" aria-label="HomeAFar photo slideshow" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onMouseEnter={() => setHeld(true)} onMouseLeave={() => setHeld(false)} onFocus={() => setHeld(true)} onBlur={() => setHeld(false)}>
       <Photo className="hero-image" key={current.file} file={current.file} alt={current.alt} eager fetchPriority={shown === 0 ? 'high' : 'auto'} style={{ '--pos': current.pos, '--pos-m': current.posM }} />
+      <div className="hero-content">
+        <div className="hero-copy-wrap">
+          <Eyebrow light>{current.eyebrow}</Eyebrow>
+          <h1 id="hero-title">{current.title}{current.accent && <><br /><em>{current.accent}</em></>}</h1>
+          <p className="hero-intro">{current.copy}</p>
+          <div className="hero-actions">
+            <a className="button button-gold" href="#about">Explore community <Icon name="arrow" size={18} /></a>
+            <a className="button button-ghost" href="#share-story">Share your story <Icon name="arrow" size={18} /></a>
+          </div>
+        </div>
+      </div>
       <a className="scroll-cue" href="#about" aria-label="Scroll to our story"><span /></a>
       <div className="hero-controls" role="group" aria-label="Photo slideshow controls" onKeyDown={onControlsKeyDown}>
         <div className="slide-indicators" role="group" aria-label="Choose a photo">
