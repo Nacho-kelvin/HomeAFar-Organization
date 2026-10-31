@@ -332,7 +332,7 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
 .hero {
   display: grid;
   grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-  min-height: clamp(640px, 72vw, 860px);
+  min-height: min(900px, calc(100svh - var(--header-h)));
   overflow: hidden;
   background: var(--hero-ink);
   color: var(--white);
@@ -370,7 +370,11 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .hero-actions .button { min-height: 48px; }
 .hero-content .button-ghost { border-color: rgba(255,255,255,.5); color: var(--white); }
-.hero-controls { right: auto; bottom: 20px; left: clamp(28px, 7vw, 112px); z-index: 3; }
+  .hero-controls { right: auto; bottom: 20px; left: clamp(28px, 7vw, 112px); z-index: 3; }
+  .slide-indicators { display: flex; align-items: center; gap: 14px; }
+  .slide-indicator { display: grid; place-items: center; width: 42px; height: 34px; padding: 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.42); color: rgba(255,255,255,.62); background: transparent; font: 600 12px/1 var(--sans); letter-spacing: .12em; cursor: pointer; }
+  .slide-indicator.is-active { border-bottom-color: var(--hero-gold); color: var(--hero-gold); }
+
 @media (max-width: 760px) {
   .hero { display: flex; min-height: 0; flex-direction: column; }
   .hero-image { order: 1; width: 100%; height: clamp(280px, 74vw, 440px); min-height: 0; padding: 0; }
