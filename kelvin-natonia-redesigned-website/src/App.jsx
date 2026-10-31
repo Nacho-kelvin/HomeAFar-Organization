@@ -353,7 +353,7 @@ function Hero() {
       load((requestedIndex + 1) % heroSlides.length);
     });
     return () => { cancelled = true; };
-  }, [active, slides]);
+  }, [active]);
 
   // Autoplay: every manual change restarts the 6 second countdown.
   useEffect(() => {
