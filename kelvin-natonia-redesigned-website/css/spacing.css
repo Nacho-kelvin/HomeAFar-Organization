@@ -442,4 +442,6 @@ button, input, textarea, select { max-width: 100%; font: inherit; }
   .partners-section .story-lede { max-width: 34ch; font-size: clamp(18px, 5vw, 21px); line-height: 1.45; }
   .team-section .section-heading { font-size: clamp(42px, 12vw, 54px); line-height: 1; }
   .team-section .story-lede { max-width: 34ch; font-size: clamp(18px, 5vw, 21px); line-height: 1.45; }
+  .emblem-lede { max-width: 34ch; font-size: clamp(18px, 5vw, 20px); line-height: 1.45; }
+  .emblem-values p { font-size: 15px; line-height: 1.5; }
   }
