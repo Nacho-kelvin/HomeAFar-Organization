@@ -35,7 +35,7 @@
   --serif: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sans: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
   --page-width: 1120px;
-  --header-h: 82px;
+  --header-h: 74px;
 }
 
 html { scroll-padding-top: 88px; }
