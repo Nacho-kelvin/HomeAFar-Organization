@@ -97,9 +97,10 @@ const slides = [
     pos: 'center 42%',
     posM: 'center 38%',
   },
-];
+  ];
+  const heroSlides = slides.slice(0, 3);
 
-// Section slideshows. Each frame cycles through photos that suit its shape; focal points keep faces in view.
+  // Section slideshows. Each frame cycles through photos that suit its shape; focal points keep faces in view.
 const SHOW = {
   about: [shot('passport', 'center 20%'), shot('facepaint', 'center 62%'), shot('gathered', 'center 76%')],
   programs: [shot('group', 'center 56%')],
@@ -338,7 +339,7 @@ function Hero() {
     const load = (index) => new Promise((resolve) => {
       const img = new Image();
       img.fetchPriority = index === requestedIndex ? 'high' : 'low';
-      const props = photoProps(slides[index].file);
+      const props = photoProps(heroSlides[index].file);
       img.sizes = props.sizes;
       img.srcset = props.srcSet;
       img.onload = resolve;
@@ -349,7 +350,7 @@ function Hero() {
     load(requestedIndex).then(() => {
       if (cancelled) return;
       setShown(requestedIndex);
-      load((requestedIndex + 1) % slides.length);
+      load((requestedIndex + 1) % heroSlides.length);
     });
     return () => { cancelled = true; };
   }, [active, slides]);
@@ -357,12 +358,12 @@ function Hero() {
   // Autoplay: every manual change restarts the 6 second countdown.
   useEffect(() => {
     if (paused || held || !documentVisible) return undefined;
-    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 6000);
+    const timer = window.setTimeout(() => setActive((index) => (index + 1) % heroSlides.length), 6000);
     return () => window.clearTimeout(timer);
   }, [paused, held, documentVisible, active, shown]);
 
-  const move = (amount) => setActive((index) => (index + amount + slides.length) % slides.length);
-  const current = slides[shown];
+  const move = (amount) => setActive((index) => (index + amount + heroSlides.length) % heroSlides.length);
+  const current = heroSlides[shown];
 
   const onTouchStart = (event) => {
     const point = event.changedTouches[0];
@@ -399,7 +400,7 @@ function Hero() {
       </div>
       <div className="hero-controls" role="group" aria-label="Photo slideshow controls" onKeyDown={onControlsKeyDown}>
         <div className="slide-indicators" role="group" aria-label="Choose a photo">
-          {slides.map((slide, index) => <button className={`slide-indicator${active === index ? ' is-active' : ''}`} type="button" aria-label={`Show photo ${index + 1}: ${slide.eyebrow}`} aria-current={active === index ? 'true' : undefined} key={slide.file} onClick={() => setActive(index)} />)}
+          {heroSlides.map((slide, index) => <button className={`slide-indicator${active === index ? ' is-active' : ''}`} type="button" aria-label={`Show photo ${index + 1}: ${slide.eyebrow}`} aria-current={active === index ? 'true' : undefined} key={slide.file} onClick={() => setActive(index)}><span>{String(index + 1).padStart(2, '0')}</span></button>)}
         </div>
       </div>
     </section>
